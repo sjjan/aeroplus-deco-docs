@@ -1541,10 +1541,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plan-with-care-dive-with-judgement" class="md-nav__link">
+  <a href="#planning-calculator-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Plan with care, dive with judgement
+        Planning calculator only
       
     </span>
   </a>
@@ -1552,10 +1552,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#software-limitations" class="md-nav__link">
+  <a href="#what-the-software-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Software limitations
+        What the software does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-software-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the software does not do
       
     </span>
   </a>
@@ -1585,10 +1596,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mind-your-gas" class="md-nav__link">
+  <a href="#garbage-in-garbage-out" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mind your gas
+        Garbage in, garbage out
       
     </span>
   </a>
@@ -1707,10 +1718,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#plan-with-care-dive-with-judgement" class="md-nav__link">
+  <a href="#planning-calculator-only" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Plan with care, dive with judgement
+        Planning calculator only
       
     </span>
   </a>
@@ -1718,10 +1729,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#software-limitations" class="md-nav__link">
+  <a href="#what-the-software-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Software limitations
+        What the software does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-software-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the software does not do
       
     </span>
   </a>
@@ -1751,10 +1773,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mind-your-gas" class="md-nav__link">
+  <a href="#garbage-in-garbage-out" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mind your gas
+        Garbage in, garbage out
       
     </span>
   </a>
@@ -1864,47 +1886,50 @@
 
 
 <h1 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Anchor link to this section">&para;</a></h1>
-<h2 id="plan-with-care-dive-with-judgement">Plan with care, dive with judgement<a class="headerlink" href="#plan-with-care-dive-with-judgement" title="Anchor link to this section">&para;</a></h2>
-<p>AeroPlus Deco is a decompression planning aid. It is not a substitute for proper training, qualified supervision, or sound judgement underwater. Decompression diving carries serious, sometimes fatal risk. The output of this software is a <em>plan</em>, not a guarantee.</p>
-<p><strong>Always cross-check every plan against a second source</strong> — a separate planning tool, a dive computer simulation, or a qualified instructor. If the second source disagrees, find out why before you dive.</p>
-<h2 id="software-limitations">Software limitations<a class="headerlink" href="#software-limitations" title="Anchor link to this section">&para;</a></h2>
-<p>AeroPlus Deco implements the <strong>Bühlmann ZHL-16C</strong> algorithm with gradient factors. This is a well-validated, widely used dissolved-gas model — but it is still a model. The actual physiology of decompression varies between divers and between dives for the same diver. The model:</p>
+<h2 id="planning-calculator-only">Planning calculator only<a class="headerlink" href="#planning-calculator-only" title="Anchor link to this section">&para;</a></h2>
+<p>AeroPlus Deco is a planning calculator. It performs decompression and gas calculations to help you prepare a dive plan <strong>before entering the water</strong>. It is <strong>not a dive computer</strong> and cannot be used during the dive itself — divers must use a certified dive computer for in-water decompression management.</p>
+<p><strong>Always verify calculations against a second planning source</strong> — another planning tool, a dive computer simulation, or a qualified instructor — before relying on them. If the second source disagrees, find out why before you dive.</p>
+<h2 id="what-the-software-does">What the software does<a class="headerlink" href="#what-the-software-does" title="Anchor link to this section">&para;</a></h2>
+<p>AeroPlus Deco implements the <strong>Bühlmann ZHL-16C</strong> algorithm with gradient factors — a well-established, widely used dissolved-gas decompression model. The calculations cover:</p>
 <ul>
-<li>Does not account for individual physiology (age, fitness, PFO, dehydration, recent injury)</li>
-<li>Does not model micro-bubbles or venous gas emboli directly</li>
-<li>Assumes idealised tissue compartments and constant respiratory exchange</li>
-<li>Cannot predict outliers — <em>any</em> dive within model limits can still result in DCS</li>
+<li>Decompression schedules for open-circuit and closed-circuit rebreather profiles</li>
+<li>Gas mix planning (best mix, MOD/EAD/END, density)</li>
+<li>Gas consumption, reserves, and rock-bottom calculations</li>
+<li>CNS and OTU oxygen-exposure totals</li>
+<li>Partial-pressure gas blending</li>
 </ul>
-<p>The app's gas density, CNS, OTU, and rock-bottom calculations are based on standard formulas and published guidelines. They are conservative starting points, not absolute safety limits.</p>
+<p>All calculations are based on standard published formulas and inputs you provide. The accuracy of the output depends entirely on the accuracy of those inputs.</p>
+<h2 id="what-the-software-does-not-do">What the software does not do<a class="headerlink" href="#what-the-software-does-not-do" title="Anchor link to this section">&para;</a></h2>
+<ul>
+<li>It does not measure depth, time, or pressure during a dive</li>
+<li>It does not provide live decompression guidance underwater</li>
+<li>It does not communicate with diving equipment</li>
+<li>It does not diagnose, monitor, treat, or compensate for any medical condition</li>
+<li>It is not a substitute for diver training, certification, or professional instruction</li>
+</ul>
 <h2 id="no-warranty">No warranty<a class="headerlink" href="#no-warranty" title="Anchor link to this section">&para;</a></h2>
-<p>AeroPlus Deco is provided "as is", without warranty of any kind — express or implied — including without limitation any warranty of merchantability, fitness for a particular purpose, or non-infringement. The authors and publisher disclaim all liability for any damages arising from the use or misuse of the software, including but not limited to:</p>
-<ul>
-<li>Decompression injuries (Type I or Type II DCS, AGE, oxygen toxicity)</li>
-<li>Equipment failures or gas planning errors</li>
-<li>Economic loss from cancelled or modified dives</li>
-<li>Any other direct or consequential harm</li>
-</ul>
-<p>By using this software you accept full responsibility for your own diving decisions.</p>
+<p>AeroPlus Deco is provided "as is", without warranty of any kind — express or implied — including without limitation any warranty of merchantability, fitness for a particular purpose, or non-infringement. The authors and publisher disclaim all liability for any damages arising from the use or misuse of the software.</p>
+<p>By using this software you accept full responsibility for your own diving decisions and acknowledge that the planning output is one input into your decision-making, not a substitute for proper training, equipment, and judgement.</p>
 <h2 id="not-a-substitute-for-training">Not a substitute for training<a class="headerlink" href="#not-a-substitute-for-training" title="Anchor link to this section">&para;</a></h2>
-<p>This documentation explains what the app does and how to use it. It does not teach you to dive. Technical diving — including decompression diving, trimix, and rebreather diving — requires:</p>
+<p>This documentation explains what the calculator does and how to use it. It does not teach you to dive. Technical diving — including decompression diving, trimix, and rebreather diving — requires:</p>
 <ul>
 <li>Certification by a recognised training agency (TDI, IANTD, GUE, PSAI, NAUI Tec, RAID, etc.)</li>
 <li>Supervised, progressive in-water training</li>
 <li>Mentored experience under qualified instructors</li>
-<li>Ongoing skill maintenance</li>
+<li>Ongoing skill maintenance and currency</li>
 </ul>
 <p>If you don't hold the certifications appropriate to the dive you're planning, <em>don't dive it</em>. Use AeroPlus Deco for study, comparison, or to prepare for training — not to enable diving you aren't qualified for.</p>
-<h2 id="mind-your-gas">Mind your gas<a class="headerlink" href="#mind-your-gas" title="Anchor link to this section">&para;</a></h2>
-<p>The gas calculations in AeroPlus Deco — rock bottom, gas plan, bailout sufficiency — are based on <strong>input you provide</strong> (SAC rates, cylinder sizes, fills, emergency rates). If your inputs are wrong, the outputs are wrong. Confirm:</p>
+<h2 id="garbage-in-garbage-out">Garbage in, garbage out<a class="headerlink" href="#garbage-in-garbage-out" title="Anchor link to this section">&para;</a></h2>
+<p>The gas calculations in AeroPlus Deco — rock bottom, gas plan, bailout sufficiency — are based on <strong>inputs you provide</strong> (SAC rates, cylinder sizes, fills, emergency rates). Wrong inputs produce wrong outputs. Confirm:</p>
 <ul>
-<li>Cylinder size is correct for your physical tank (steel vs aluminium, common nominal vs actual volume)</li>
+<li>Cylinder size matches your physical tank (steel vs aluminium, nominal vs actual volume)</li>
 <li>Fill pressure matches the actual gauge reading</li>
 <li>SAC rate reflects your real-world consumption on the dive type you're planning</li>
 <li>Mix percentages match what was analyzed in the cylinder</li>
 </ul>
 <p><strong>Always analyze your gas with a calibrated O₂ analyzer (and helium analyzer for trimix) before diving.</strong> Label cylinders, and follow your team's gas-matching protocol before the dive.</p>
 <h2 id="ccr-specifics">CCR specifics<a class="headerlink" href="#ccr-specifics" title="Anchor link to this section">&para;</a></h2>
-<p>Closed-circuit rebreather diving adds significant complexity and additional failure modes beyond OC. The CCR planning features in AeroPlus Deco assume:</p>
+<p>Closed-circuit rebreather diving is significantly more complex than open circuit. The CCR planning features assume:</p>
 <ul>
 <li>Correct setpoint values entered for your unit</li>
 <li>Realistic O₂ metabolic rate</li>
@@ -1912,26 +1937,26 @@
 <li>Bailout cylinders appropriate for your unit and dive plan</li>
 <li>A trained, current CCR diver operating the unit</li>
 </ul>
-<p>The bailout sufficiency check is a model — it does not validate that you have the right <em>type</em> of gas for the depth ranges involved, only that the volume is sufficient. Verify mix compatibility manually.</p>
+<p>The bailout sufficiency check is a calculation, not a complete validation — it does not verify that you have the right <em>type</em> of gas for the depth ranges involved, only that the volume is sufficient. Verify mix compatibility manually.</p>
 <h2 id="model-conservatism">Model conservatism<a class="headerlink" href="#model-conservatism" title="Anchor link to this section">&para;</a></h2>
 <p>Gradient factors are personal. The defaults (GF 30/85) are widely cited but not universally appropriate. Choose conservatism based on:</p>
 <ul>
 <li>Your training and your agency's guidance</li>
-<li>Your personal DCS history and risk factors</li>
+<li>Your personal history and physical factors</li>
 <li>Conditions (water temperature, current, exertion expected)</li>
 <li>Time since last dive and recent fatigue</li>
 <li>Hydration, sleep, and general fitness on the day</li>
 </ul>
-<p>If in doubt, be more conservative, not less. There is no decompression schedule that cannot be made safer by adding margin.</p>
+<p>If in doubt, be more conservative, not less.</p>
 <h2 id="updates-and-version-stability">Updates and version stability<a class="headerlink" href="#updates-and-version-stability" title="Anchor link to this section">&para;</a></h2>
 <p>This software is under active development. Algorithms, defaults, and UI may change between versions. The version displayed in the app header is your reference for any issue report. Plans saved from older versions should re-import into newer versions, but always verify the output looks correct after an update.</p>
 <h2 id="reporting-issues">Reporting issues<a class="headerlink" href="#reporting-issues" title="Anchor link to this section">&para;</a></h2>
-<p>If you find a bug, an incorrect calculation, or a regression that affects safety:</p>
+<p>If you find a bug, an incorrect calculation, or a regression:</p>
 <ul>
 <li>Use <strong>Help &amp; feedback</strong> in the app to email <strong>support@aeroplus.nl</strong></li>
 <li>Include the plan share link, browser, version, and a description of what you observed vs expected</li>
 </ul>
-<p>Safety-relevant issues will be triaged with priority. Critical fixes get out as soon as practical.</p>
+<p>Issues affecting calculation correctness are triaged with priority.</p>
 <h2 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Anchor link to this section">&para;</a></h2>
 <p>AeroPlus Deco does not collect personal data, analytics, or telemetry. Your plans, settings, and license details stay on your device unless you explicitly share them via a link, PDF, or JSON export.</p>
 <p>Network requests are made only:</p>
