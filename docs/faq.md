@@ -32,9 +32,7 @@ Your plans, settings, and license details stay in your browser's localStorage.
 
 ### Why does my first deco stop appear deeper than I'd expect?
 
-The default GF of 30/85 produces a moderately deep first stop. If you want shallower first stops (Andy Davis style), raise GF Low — for OC tech with a 50% deco gas, try **GF 40/85** or use the **Auto-set GF Low** toggle which derives this for you automatically.
-
-See [Gradient factors](concepts/gradient-factors.md) and the [Andy Davis method](concepts/andy-davis-method.md).
+The default GF 50/75 already produces a relatively shallow first stop — in line with modern post-NEDU tech practice. If you still want it shallower (so it coincides exactly with your first deco gas switch), use the **Auto-set GF Low** toggle, which derives the optimal value for your specific gas plan via the [Andy Davis method](concepts/andy-davis-method.md). Going below GF Low ~35 mandates a deep stop without scientific justification — see [Gradient factors](concepts/gradient-factors.md#why-deep-stops-fell-out-of-favor).
 
 ### What's the difference between "Total deco time" and "TTS at ascent start"?
 
