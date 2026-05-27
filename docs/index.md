@@ -56,8 +56,8 @@ AeroPlus Deco is developed by **Magnolia Blossom BV** (Doesburg, The Netherlands
 
 The codebase is a single HTML file — no servers, no analytics, no telemetry. Your plans never leave your device unless you share them.
 
-!!! warning "Important disclaimer"
-    Always cross-check your decompression plans using a second tool or a qualified instructor. This app is for planning assistance only. Diving outside no-stop limits carries serious risks — incorrect decompression can result in injury or death. See the full [disclaimer](disclaimer.md).
+!!! warning "Planning calculator only"
+    AeroPlus Deco is a planning calculator. It is not a dive computer and cannot be used during the dive itself — always use a certified dive computer in the water. Verify calculations against a second planning source before relying on them. See the full [disclaimer](disclaimer.md).
 
 ---
 
