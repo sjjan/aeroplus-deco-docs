@@ -4,7 +4,7 @@ Oxygen at elevated partial pressures is toxic to the body in two distinct ways. 
 
 ## CNS — central nervous system toxicity
 
-**CNS oxygen toxicity** is the acute risk — a sudden seizure underwater, almost always fatal because the diver loses consciousness and the regulator. It scales with **PPO₂ at depth** and time exposed.
+**CNS oxygen toxicity** is the acute risk — it scales with **PPO₂ at depth** and time exposed, and is the reason why deco gases have maximum operating depths.
 
 The standard NOAA CNS clock tracks fractional exposure:
 
