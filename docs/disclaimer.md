@@ -68,7 +68,7 @@ The bailout sufficiency check is a calculation, not a complete validation — it
 
 ## Model conservatism
 
-Gradient factors are personal. The defaults (GF 30/85) are widely cited but not universally appropriate. Choose conservatism based on:
+Gradient factors are personal. The defaults (GF 50/75) are a modern starting point but not universally appropriate. Choose conservatism based on:
 
 - Your training and your agency's guidance
 - Your personal history and physical factors
