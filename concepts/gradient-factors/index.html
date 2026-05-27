@@ -704,6 +704,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-deep-stops-fell-out-of-favor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why deep stops fell out of favor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#defaults-in-aeroplus-deco" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1681,6 +1692,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-deep-stops-fell-out-of-favor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why deep stops fell out of favor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#defaults-in-aeroplus-deco" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1773,14 +1795,19 @@
 <h2 id="how-to-read-gf-xy">How to read "GF X/Y"<a class="headerlink" href="#how-to-read-gf-xy" title="Anchor link to this section">&para;</a></h2>
 <p>The conventional notation is <code>GF Low / GF High</code>:</p>
 <ul>
-<li><strong>GF 30/85</strong> — moderately conservative, the default in many computers</li>
-<li><strong>GF 30/70</strong> — more conservative, often used as a fitter/older diver baseline</li>
-<li><strong>GF 40/85</strong> — slightly more aggressive deep, same shallow</li>
-<li><strong>GF 50/80</strong> — common Andy Davis-style setting for typical tech dives</li>
+<li><strong>GF 50/75</strong> — modern default; shallow first stop, moderate surfacing margin (the app's starting point)</li>
+<li><strong>GF 50/70</strong> — slightly more conservative shallow, common for divers wanting more surfacing margin</li>
+<li><strong>GF 45/75</strong> — slightly more conservative deep, same surfacing</li>
+<li><strong>GF 30/85</strong> — older "deep-stop era" approach. Still seen on some computers but produces unnecessarily deep first stops by current understanding (see below)</li>
 <li><strong>GF 100/100</strong> — raw Bühlmann, no extra conservatism (do not dive this)</li>
 </ul>
+<h2 id="why-deep-stops-fell-out-of-favor">Why deep stops fell out of favor<a class="headerlink" href="#why-deep-stops-fell-out-of-favor" title="Anchor link to this section">&para;</a></h2>
+<p>Through the early 2000s, common GF Low values were 20–30 — pushing the first stop very deep, based on the bubble-model thinking that deeper stops would help fast tissues off-gas before they could bubble.</p>
+<p>The 2011 US Navy NEDU study (Doolette et al.) compared shallow-stop vs deep-stop ascent profiles head-to-head with Doppler monitoring. The result was unambiguous: <strong>deep stops produced more decompression sickness, not less</strong>. The slow tissues kept on-gassing during the deep stops, and that on-gassing outweighed any fast-tissue benefit.</p>
+<p>Subsequent research has confirmed the finding. The modern recommendation is to set GF Low high enough that the first stop is shallow enough for the leading tissue to actually be off-gassing — typically near the depth of the first deco gas switch. That's what the <a href="../andy-davis-method/">Andy Davis method</a> achieves automatically.</p>
+<p>In practice: GF Low values in the <strong>40–55 range</strong> are now standard for OC tech diving. Going below GF Low 35 mandates a deep stop without scientific justification.</p>
 <h2 id="defaults-in-aeroplus-deco">Defaults in AeroPlus Deco<a class="headerlink" href="#defaults-in-aeroplus-deco" title="Anchor link to this section">&para;</a></h2>
-<p>The app ships with <strong>GF 30/85</strong> on a fresh plan — a reasonable starting point. You can change them in <strong>Settings → Gradient factor</strong> or via the <strong>Auto-set GF Low</strong> toggle.</p>
+<p>The app ships with <strong>GF 50/75</strong> on a fresh plan — a modern starting point in line with current tech-diving practice. You can change it in <strong>Settings → Gradient factor</strong> or via the <strong>Auto-set GF Low</strong> toggle.</p>
 <h2 id="auto-set-gf-low">Auto-set GF Low<a class="headerlink" href="#auto-set-gf-low" title="Anchor link to this section">&para;</a></h2>
 <p>For OC tech diving, the app can derive GF Lo automatically using the <a href="../andy-davis-method/">Andy Davis method</a>: set GF Lo such that the first decompression stop coincides with the depth where your richest enabled deco gas becomes breathable. This maximises off-gassing efficiency on the deco gas rather than wasting time on back-gas deep stops.</p>
 <p>Toggle it on in <strong>Settings → Auto-set GF Low</strong>. The label shows the computed value and the resulting first stop depth.</p>
@@ -1800,6 +1827,7 @@
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li>Andy Davis — <a href="https://scubatechphilippines.com/scuba_blog/gradient-factors-application-use-settings-open-circuit-tech/">A Logical Application of Gradient Factors for OC Tech Divers</a></li>
+<li>Doolette, D. J., Gerth, W. A., &amp; Gault, K. A. (2011) — <em>Redistribution of decompression stop time from shallow to deep stops increases incidence of decompression sickness in air decompression dives</em> (US Navy NEDU TR 11-06)</li>
 <li>Erik Baker — <em>Clearing up the confusion about deep stops</em> (the original gradient factors paper)</li>
 </ul>
 
