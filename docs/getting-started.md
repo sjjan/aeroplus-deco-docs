@@ -6,7 +6,7 @@ This page walks you through building your first dive plan in AeroPlus Deco — f
 
 Visit [sjjan.github.io/aeroplus-deco](https://sjjan.github.io/aeroplus-deco/) in any modern browser. Nothing to install yet — the app runs entirely in the browser.
 
-The first time you open it, you'll see an empty **Plan 1** with the default settings: open-circuit mode, ZHL-16C-GF, GF 30/85, fresh water, sea level.
+The first time you open it, you'll see an empty **Plan 1** with the default settings: open-circuit mode, ZHL-16C-GF, GF 50/75, fresh water, sea level.
 
 !!! tip "Install as a home-screen app"
     Once you're using AeroPlus Deco regularly, install it to your phone or laptop so it opens like a native app and works offline. See [Install as app](installing.md).
