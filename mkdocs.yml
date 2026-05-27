@@ -1,0 +1,116 @@
+site_name: AeroPlus Deco
+site_description: Technical dive decompression planner — documentation and reference
+site_url: https://sjjan.github.io/aeroplus-deco-docs/
+site_author: Magnolia Blossom BV
+
+repo_url: https://github.com/sjjan/aeroplus-deco
+repo_name: sjjan/aeroplus-deco
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; Magnolia Blossom BV, Doesburg, The Netherlands
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - content.tabs.link
+    - toc.follow
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sjjan/aeroplus-deco
+    - icon: fontawesome/solid/envelope
+      link: mailto:support@aeroplus.nl
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Concepts:
+      - concepts/index.md
+      - Gradient factors: concepts/gradient-factors.md
+      - Andy Davis method: concepts/andy-davis-method.md
+      - Tissue saturation & GF99: concepts/tissue-saturation.md
+      - TTS & deco stops: concepts/tts-and-deco-stops.md
+      - Gas density: concepts/gas-density.md
+      - CNS & OTU: concepts/cns-and-otu.md
+      - Rock bottom: concepts/rock-bottom.md
+  - Planning a dive:
+      - planning/index.md
+      - Cylinders & gases: planning/cylinders.md
+      - Dive profile: planning/dive-profile.md
+      - Reading the output: planning/reading-the-output.md
+      - Contingency plans: planning/contingency-plans.md
+      - Sharing & backup: planning/sharing-and-backup.md
+  - CCR diving:
+      - ccr/index.md
+      - Setup: ccr/setup.md
+      - Setpoints: ccr/setpoints.md
+      - Bailout planning: ccr/bailout-planning.md
+      - Oxygen & scrubber: ccr/oxygen-and-scrubber.md
+  - Calculators:
+      - tools/index.md
+      - Best mix: tools/best-mix.md
+      - MOD / EAD / END: tools/mod-end.md
+      - Gas blending: tools/gas-blending.md
+  - Install as app: installing.md
+  - License & trial: license.md
+  - FAQ: faq.md
+  - Disclaimer: disclaimer.md
