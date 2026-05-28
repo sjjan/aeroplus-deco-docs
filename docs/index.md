@@ -65,4 +65,4 @@ The codebase is a single HTML file — no servers, no analytics, no telemetry. Y
 
 For release notes and upcoming work, see the [GitHub issues](https://github.com/sjjan/aeroplus-deco/issues) page.
 
-For bug reports or feature requests, use the **Help & feedback** menu in the app, or email [support@aeroplus.nl](mailto:support@aeroplus.nl).
+For bug reports or feature requests, use the **Help & feedback** menu in the app, or email [support@aeroplus-deco.com](mailto:support@aeroplus-deco.com).

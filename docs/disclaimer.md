@@ -86,7 +86,7 @@ This software is under active development. Algorithms, defaults, and UI may chan
 
 If you find a bug, an incorrect calculation, or a regression:
 
-- Use **Help & feedback** in the app to email **support@aeroplus.nl**
+- Use **Help & feedback** in the app to email **support@aeroplus-deco.com**
 - Include the plan share link, browser, version, and a description of what you observed vs expected
 
 Issues affecting calculation correctness are triaged with priority.
@@ -111,7 +111,7 @@ The Bühlmann ZHL-16C algorithm is in the public domain (Bühlmann, *Tauchmedizi
 
 ## Contact
 
-Email: **[support@aeroplus.nl](mailto:support@aeroplus.nl)**
+Email: **[support@aeroplus-deco.com](mailto:support@aeroplus-deco.com)**
 
 Bug reports & feature requests: **[github.com/sjjan/aeroplus-deco/issues](https://github.com/sjjan/aeroplus-deco/issues)**
 

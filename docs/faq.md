@@ -141,7 +141,7 @@ Use the JSON backup feature: **App menu → Share or back up → Save data** gen
 
 ### A calculation crashes or shows weird numbers
 
-Use **Help & feedback** in the app to email support@aeroplus.nl with:
+Use **Help & feedback** in the app to email support@aeroplus-deco.com with:
 
 - A description of what you did
 - The plan share link (you can toggle "Include current plan" when you email)

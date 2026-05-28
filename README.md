@@ -119,5 +119,5 @@ Override the Material CSS variables:
 
 ## Contact
 
-Email: **support@aeroplus.nl**
+Email: **support@aeroplus-deco.com**
 Issues: **github.com/sjjan/aeroplus-deco/issues**

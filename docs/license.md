@@ -49,7 +49,7 @@ The deactivation talks to the Polar API to free up the slot, then you can activa
 
 If you can't access the old device (lost, sold, broken), contact support — Polar can free up a slot manually:
 
-- Email **support@aeroplus.nl** with your license key
+- Email **support@aeroplus-deco.com** with your license key
 - Include the rough activation date or proof of purchase
 
 ## What you're paying for
@@ -57,13 +57,13 @@ If you can't access the old device (lost, sold, broken), contact support — Pol
 - **Lifetime access** to AeroPlus Deco — no monthly subscription
 - **Free updates** for the same major version (and a generous grace period for major upgrades)
 - **No ads, no tracking, no telemetry** — the app stays clean
-- **Email support** at support@aeroplus.nl
+- **Email support** at support@aeroplus-deco.com
 
 You're explicitly not paying for: data hosting (the app stores nothing on a server), analytics, or any premium tier — there's only one tier.
 
 ## Refunds
 
-Polar handles refund requests within 14 days of purchase. Email **support@aeroplus.nl** if you want to request one.
+Polar handles refund requests within 14 days of purchase. Email **support@aeroplus-deco.com** if you want to request one.
 
 ## Privacy of activation
 
