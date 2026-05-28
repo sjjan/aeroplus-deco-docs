@@ -27,6 +27,41 @@ Time at each PPO₂ adds a fraction of that limit to your CNS clock. AeroPlus De
 
 CNS recovers exponentially during the surface interval — roughly halving every 90 minutes. AeroPlus Deco accounts for this when chaining repetitive plans.
 
+### How strict are these limits? (2025 revision)
+
+The CNS percentages above derive from NOAA's 1991 exposure tables. It's worth understanding how those numbers came about, because the field's thinking has moved on.
+
+The 1991 limits were conservative guidelines, not values derived from direct empirical evidence of seizure risk. In practice, technical divers have routinely exceeded them without apparent ill effect — which prompted a formal re-examination.
+
+In March 2025, a NOAA-convened expert workshop (held at the AAUS Annual Meeting, ~60 technical and scientific divers participating) reviewed the evidence and published revised guidance. The key conclusions, **specifically for an inspired PO₂ of 1.3 atm**:
+
+- Dives at PO₂ 1.3 atm of up to **240 minutes of working activity followed by up to 240 minutes of resting decompression** carry an acceptably low risk of cerebral oxygen toxicity — substantially more permissive than the old 180 min/dive figure.
+- For very long exposures, **pulmonary (OTU) toxicity becomes the controlling factor** rather than CNS — but pulmonary toxicity is generally reversible.
+- NOAA has indicated it intends to adopt these revised limits in future editions of its Diving Manual.
+
+!!! note "Important scope limitation"
+    The 2025 revision applies **specifically to PO₂ 1.3 atm** — the common CCR bottom setpoint. The authors deliberately did not extend it to other PO₂ values, because the supporting evidence exists only at 1.3 atm. The general observation that CNS toxicity is rare below 1.6 atm is a separate, older finding and should not be conflated with the 2025 guideline. At higher PO₂ (e.g. 1.6 on a rich deco gas), treat the classic NOAA limits as still applicable.
+
+The practical takeaway: the CNS clock is a useful planning indicator, not a hard physiological cliff. Assess your exposure in context of your actual PO₂, dive history, and individual risk factors — and don't treat a CNS figure approaching 100 % at a 1.3 setpoint as the emergency the 1991 tables once implied.
+
+### Choosing which limits the app uses
+
+AeroPlus Deco lets you pick which limits drive the CNS calculation, in **Settings → Use 2025 revised CNS limits**:
+
+- **Off (default)** — the conservative 1991 NOAA tables. CNS accumulates at the classic rates (1.3 ata → 180 min to 100 %).
+- **On** — the 2025 revised limits. At PO₂ **1.3 ata and below**, the single-exposure limit becomes **240 minutes** (1.3 ata → 240 min to 100 %). PO₂ **above 1.3** keeps the conservative 1991 values, matching the scope of the research.
+
+Switching the toggle recalculates the active plan immediately. The CNS note shown in the plan output always states which set of limits produced the figure, so the two never disagree.
+
+A worked comparison at a constant 1.3 ata CCR setpoint:
+
+| Time at 1.3 ata | CNS (1991) | CNS (2025 revised) |
+|---|---|---|
+| 180 min | 100 % | 75 % |
+| 240 min | 133 % | 100 % |
+
+Note that rich deco gases (e.g. 1.6 ata) produce identical CNS in both modes — the revision only relaxes the 1.3 ata region.
+
 ## OTU — Oxygen Tolerance Units
 
 **OTU** is the pulmonary toxicity measure — the slower, lower-acuity risk that builds up over hours and days of oxygen-rich diving. It manifests as lung irritation, reduced vital capacity, and eventually persistent chest pain.
@@ -71,5 +106,6 @@ If you're planning multi-hour or multi-day CCR ops, consider:
 
 ## Further reading
 
+- Hoyt, J. T., Murphy, F. G., Pollock, N. W., Kernagis, D., Bird, N., Menduno, M., Bright, J., & Mitchell, S. J. (2025). *Revised guideline for central nervous system oxygen toxicity exposure limits when using an inspired PO₂ of 1.3 atmospheres.* Diving and Hyperbaric Medicine, 55(3), 262–270.
 - NOAA — *Diving Manual* (CNS and OTU tables)
 - IANTD — *Encyclopedia of Technical Diving*
