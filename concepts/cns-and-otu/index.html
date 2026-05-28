@@ -844,6 +844,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-strict-are-these-limits-2025-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How strict are these limits? (2025 revision)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-which-limits-the-app-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing which limits the app uses
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1687,6 +1709,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-strict-are-these-limits-2025-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How strict are these limits? (2025 revision)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-which-limits-the-app-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing which limits the app uses
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1819,6 +1863,50 @@
 <li><strong>40–50 % CNS</strong> — recreational tech ceiling</li>
 </ul>
 <p>CNS recovers exponentially during the surface interval — roughly halving every 90 minutes. AeroPlus Deco accounts for this when chaining repetitive plans.</p>
+<h3 id="how-strict-are-these-limits-2025-revision">How strict are these limits? (2025 revision)<a class="headerlink" href="#how-strict-are-these-limits-2025-revision" title="Anchor link to this section">&para;</a></h3>
+<p>The CNS percentages above derive from NOAA's 1991 exposure tables. It's worth understanding how those numbers came about, because the field's thinking has moved on.</p>
+<p>The 1991 limits were conservative guidelines, not values derived from direct empirical evidence of seizure risk. In practice, technical divers have routinely exceeded them without apparent ill effect — which prompted a formal re-examination.</p>
+<p>In March 2025, a NOAA-convened expert workshop (held at the AAUS Annual Meeting, ~60 technical and scientific divers participating) reviewed the evidence and published revised guidance. The key conclusions, <strong>specifically for an inspired PO₂ of 1.3 atm</strong>:</p>
+<ul>
+<li>Dives at PO₂ 1.3 atm of up to <strong>240 minutes of working activity followed by up to 240 minutes of resting decompression</strong> carry an acceptably low risk of cerebral oxygen toxicity — substantially more permissive than the old 180 min/dive figure.</li>
+<li>For very long exposures, <strong>pulmonary (OTU) toxicity becomes the controlling factor</strong> rather than CNS — but pulmonary toxicity is generally reversible.</li>
+<li>NOAA has indicated it intends to adopt these revised limits in future editions of its Diving Manual.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Important scope limitation</p>
+<p>The 2025 revision applies <strong>specifically to PO₂ 1.3 atm</strong> — the common CCR bottom setpoint. The authors deliberately did not extend it to other PO₂ values, because the supporting evidence exists only at 1.3 atm. The general observation that CNS toxicity is rare below 1.6 atm is a separate, older finding and should not be conflated with the 2025 guideline. At higher PO₂ (e.g. 1.6 on a rich deco gas), treat the classic NOAA limits as still applicable.</p>
+</div>
+<p>The practical takeaway: the CNS clock is a useful planning indicator, not a hard physiological cliff. Assess your exposure in context of your actual PO₂, dive history, and individual risk factors — and don't treat a CNS figure approaching 100 % at a 1.3 setpoint as the emergency the 1991 tables once implied.</p>
+<h3 id="choosing-which-limits-the-app-uses">Choosing which limits the app uses<a class="headerlink" href="#choosing-which-limits-the-app-uses" title="Anchor link to this section">&para;</a></h3>
+<p>AeroPlus Deco lets you pick which limits drive the CNS calculation, in <strong>Settings → Use 2025 revised CNS limits</strong>:</p>
+<ul>
+<li><strong>Off (default)</strong> — the conservative 1991 NOAA tables. CNS accumulates at the classic rates (1.3 ata → 180 min to 100 %).</li>
+<li><strong>On</strong> — the 2025 revised limits. At PO₂ <strong>1.3 ata and below</strong>, the single-exposure limit becomes <strong>240 minutes</strong> (1.3 ata → 240 min to 100 %). PO₂ <strong>above 1.3</strong> keeps the conservative 1991 values, matching the scope of the research.</li>
+</ul>
+<p>Switching the toggle recalculates the active plan immediately. The CNS note shown in the plan output always states which set of limits produced the figure, so the two never disagree.</p>
+<p>A worked comparison at a constant 1.3 ata CCR setpoint:</p>
+<table>
+<thead>
+<tr>
+<th>Time at 1.3 ata</th>
+<th>CNS (1991)</th>
+<th>CNS (2025 revised)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>180 min</td>
+<td>100 %</td>
+<td>75 %</td>
+</tr>
+<tr>
+<td>240 min</td>
+<td>133 %</td>
+<td>100 %</td>
+</tr>
+</tbody>
+</table>
+<p>Note that rich deco gases (e.g. 1.6 ata) produce identical CNS in both modes — the revision only relaxes the 1.3 ata region.</p>
 <h2 id="otu-oxygen-tolerance-units">OTU — Oxygen Tolerance Units<a class="headerlink" href="#otu-oxygen-tolerance-units" title="Anchor link to this section">&para;</a></h2>
 <p><strong>OTU</strong> is the pulmonary toxicity measure — the slower, lower-acuity risk that builds up over hours and days of oxygen-rich diving. It manifests as lung irritation, reduced vital capacity, and eventually persistent chest pain.</p>
 <p>OTU loading is computed as a function of PPO₂ (above ~0.5 ata) and time. Limits depend on the duration of activity:</p>
@@ -1871,6 +1959,7 @@
 </ul>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Anchor link to this section">&para;</a></h2>
 <ul>
+<li>Hoyt, J. T., Murphy, F. G., Pollock, N. W., Kernagis, D., Bird, N., Menduno, M., Bright, J., &amp; Mitchell, S. J. (2025). <em>Revised guideline for central nervous system oxygen toxicity exposure limits when using an inspired PO₂ of 1.3 atmospheres.</em> Diving and Hyperbaric Medicine, 55(3), 262–270.</li>
 <li>NOAA — <em>Diving Manual</em> (CNS and OTU tables)</li>
 <li>IANTD — <em>Encyclopedia of Technical Diving</em></li>
 </ul>
