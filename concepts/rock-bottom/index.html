@@ -913,6 +913,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multiple-back-gases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple back gases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#adjustable-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1711,6 +1722,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multiple-back-gases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple back gases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#adjustable-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1786,6 +1808,7 @@
 <li>Convert litres to bar using the cylinder's size</li>
 </ol>
 <p>The result is a <strong>per-cylinder bar pressure</strong> that must remain at the end of the dive.</p>
+<p>With more than one back gas enabled, this reserve is computed once and <strong>pooled</strong> across the cylinders rather than duplicated — see <a href="#multiple-back-gases">Multiple back gases</a> below.</p>
 <h2 id="where-to-find-it-in-the-app">Where to find it in the app<a class="headerlink" href="#where-to-find-it-in-the-app" title="Anchor link to this section">&para;</a></h2>
 <p>In the <strong>Rock bottom &amp; TTS card</strong> at the bottom of the plan output:</p>
 <table>
@@ -1836,6 +1859,17 @@
 </tbody>
 </table>
 <p>The three segments together equal the cylinder fill. If the <strong>red Reserve</strong> segment is smaller than the rock-bottom requirement shown in the Rock bottom card, <strong>the dive ate into the reserve</strong> — your plan doesn't carry enough gas. Increase fill, larger cylinder, or shorten the dive.</p>
+<h2 id="multiple-back-gases">Multiple back gases<a class="headerlink" href="#multiple-back-gases" title="Anchor link to this section">&para;</a></h2>
+<p>You can enable <strong>more than one bottom-gas cylinder</strong> at once — for example a back-mounted twinset plus a stage of the same mix, or two cylinders filled a percent or two apart because the blend wasn't perfect. Tick each one in <strong>Gas &amp; cylinders</strong>; the app always keeps at least one bottom gas enabled.</p>
+<p>With several back gases enabled, AeroPlus Deco treats them as a single <strong>interchangeable pool</strong>:</p>
+<ul>
+<li><strong>Gas selection</strong> — at each depth the algorithm breathes the richest enabled gas that's within PPO₂ limits.</li>
+<li><strong>One pooled reserve</strong> — rock bottom is a single reserve <em>volume</em> (computed once, as above), not one per cylinder. It's placed on the <strong>last-added</strong> back cylinder first and spills back to earlier ones only if that cylinder can't hold it — counting only the gas left <strong>after</strong> planned consumption. That's why the reserve in the Gas plan card and the Rock bottom card always match, and why a cylinder you also breathe from carries less reserve than an untouched one.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Interchangeable only holds for near-identical fills</p>
+<p>Pooling assumes the gases are genuinely substitutable. If two enabled bottom gases differ by more than roughly <strong>3 percentage points of O₂</strong> or <strong>5 of helium</strong>, the plan shows a note — the mixes aren't really interchangeable, and the one you'd breathe at a different phase is probably a <strong>travel</strong> or <strong>deco</strong> gas. Set its role accordingly rather than leaving it as a second bottom gas. Large helium-to-nitrogen differences also make the <a href="../icd-and-hpns/">ICD</a> note relevant on deep switches.</p>
+</div>
 <h2 id="adjustable-inputs">Adjustable inputs<a class="headerlink" href="#adjustable-inputs" title="Anchor link to this section">&para;</a></h2>
 <p>The rock bottom calculation pulls from several Settings values:</p>
 <ul>
