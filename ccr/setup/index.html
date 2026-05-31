@@ -1924,7 +1924,7 @@
 <li><strong>Bailout EAD</strong> — if you bail out to OC on the diluent, your immediate gas at that depth is the raw diluent</li>
 <li><strong>Loop density</strong> — denser diluent means denser loop</li>
 </ul>
-<p>The "best diluent" calculator can compute a diluent that satisfies both narcosis and density constraints at your max planned depth.</p>
+<p>The "best diluent" calculator can compute a diluent that satisfies both narcosis and density constraints at your max planned depth. Its oxygen fraction follows the <strong>diluent O₂ strategy</strong> you choose — a fixed 10 %, or one set so the diluent PPO₂ at depth is 1.0 ata — see the <a href="../../tools/best-mix/">Best mix calculator</a>.</p>
 <h3 id="oxygen">Oxygen<a class="headerlink" href="#oxygen" title="Anchor link to this section">&para;</a></h3>
 <p>Pure O₂ (1.00 / 0). Used by the loop solenoid to maintain setpoint. The app tracks <strong>O₂ used in litres</strong> based on metabolic consumption and setpoint-driven flushes, and <strong>remaining O₂ duration</strong>.</p>
 <p>You can adjust:</p>
@@ -1962,7 +1962,7 @@
 </ul>
 <p>This lets you compare the same dive on OC vs CCR easily. Switching does <strong>not</strong> auto-recalculate — you'll see "Press Calculate" until you re-trigger the algorithm.</p>
 <h2 id="settings-specific-to-ccr">Settings specific to CCR<a class="headerlink" href="#settings-specific-to-ccr" title="Anchor link to this section">&para;</a></h2>
-<p>In <strong>Settings → CCR — O₂ &amp; Hardware</strong>:</p>
+<p>In <strong>Settings → CCR</strong>:</p>
 <table>
 <thead>
 <tr>
@@ -1990,6 +1990,12 @@
 <td>2 min</td>
 <td>0–5</td>
 <td>Mandatory pause when switching to bailout</td>
+</tr>
+<tr>
+<td>Diluent O₂ from target PPO₂</td>
+<td>Off</td>
+<td>On / Off</td>
+<td>Best-diluent O₂ strategy. Off = fixed 10 %; on = diluent O₂ set so its PPO₂ at depth is 1.0 ata (≈ 9 % at 100 m)</td>
 </tr>
 </tbody>
 </table>

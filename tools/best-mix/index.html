@@ -1417,6 +1417,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How it works (CCR — best diluent)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diluent-o2-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diluent O₂ strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-a-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypoxic-diluent-fine-on-the-loop-not-on-open-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hypoxic diluent: fine on the loop, not on open circuit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-displayed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's displayed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1469,6 +1519,17 @@
     <span class="md-ellipsis">
       
         CCR diluent for 60 m, SP 1.3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-ccr-with-a-target-ppo2-diluent-100-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep CCR with a Target-PPO₂ diluent (100 m)
       
     </span>
   </a>
@@ -1739,6 +1800,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How it works (CCR — best diluent)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diluent-o2-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diluent O₂ strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-a-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypoxic-diluent-fine-on-the-loop-not-on-open-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hypoxic diluent: fine on the loop, not on open circuit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-displayed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's displayed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1791,6 +1902,17 @@
     <span class="md-ellipsis">
       
         CCR diluent for 60 m, SP 1.3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-ccr-with-a-target-ppo2-diluent-100-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep CCR with a Target-PPO₂ diluent (100 m)
       
     </span>
   </a>
@@ -1915,19 +2037,58 @@
 </code></pre></div>
 <p>The helium is increased until both EAD and density requirements are satisfied. Whichever requires more helium wins; the EAD ends up shallower than requested.</p>
 <h2 id="how-it-works-ccr-best-diluent">How it works (CCR — best diluent)<a class="headerlink" href="#how-it-works-ccr-best-diluent" title="Anchor link to this section">&para;</a></h2>
-<p>CCR mode is more complex because the loop mix depends on the bottom setpoint, not the diluent.</p>
-<p>The optimum diluent has:</p>
+<p>CCR mode is more complex because the loop mix at the bottom is set by your <strong>setpoint</strong>, not by the diluent. So the calculator solves for the <strong>diluent</strong> — the gas in the offboard cylinder that fills the loop and doubles as open-circuit bailout. Two parts are derived:</p>
 <ul>
-<li><strong>10 % O₂</strong> (normoxic) when possible — so it's breathable as bailout from at least the surface</li>
-<li><strong>He %</strong> adjusted so the <strong>loop</strong> at the bottom setpoint achieves the target EAD and density</li>
+<li><strong>Diluent O₂ %</strong> — picked by the <em>diluent O₂ strategy</em> you have chosen (see below).</li>
+<li><strong>Diluent He %</strong> — adjusted so the <strong>loop</strong> at the bottom setpoint meets your target EAD, and (if <strong>Limit gas density</strong> is on) the ≤ 5.2 g/ℓ density target. Both strategies feed this same helium logic — only the oxygen fraction differs.</li>
 </ul>
-<p>If 10 % O₂ produces a diluent PPO₂ &gt; 1.6 ata at depth (i.e., the diluent would be over-rich during a flush), the algorithm reduces the O₂ fraction below 10 % — making the diluent <strong>hypoxic</strong>. A hypoxic diluent requires a travel/bailout gas to descend safely through the surface phase.</p>
-<p>The result is displayed as the diluent O₂/He (what you'd actually have in the cylinder), along with:</p>
+<h3 id="diluent-o2-strategy">Diluent O₂ strategy<a class="headerlink" href="#diluent-o2-strategy" title="Anchor link to this section">&para;</a></h3>
+<p>How the diluent's oxygen fraction is chosen is controlled under <strong>App menu → Settings → CCR</strong>, by the <strong>Diluent O₂ from target PPO₂</strong> toggle:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Fixed 10 % (default)</label><label for="__tabbed_1_2">Target diluent PPO₂</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The diluent holds a flat <strong>10 % O₂</strong>. It only drops below 10 % when — very deep — that 10 % would push the diluent's PPO₂ above 1.6 ata if breathed as open-circuit bailout, at which point the calculator lowers it automatically.</p>
+<p>This is the conventional "standard hypoxic diluent": one familiar number, carrying the richest practical O₂ fraction while still leaving a usable bailout margin at depth.</p>
+</div>
+<div class="tabbed-block">
+<p>The diluent O₂ is set so its <strong>partial pressure at the target depth equals a fixed target of 1.0 ata</strong> — the value that keeps a small open-circuit PPO₂ margin at the bottom and a sensible loop O₂ floor during a diluent flush:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Diluent O₂ % = 1.0 ÷ absolute pressure at depth
+</code></pre></div>
+<p>For example, at 100 m (P<sub>abs</sub> ≈ 11 ata) this gives <strong>≈ 9 % O₂</strong>; shallower depths get a correspondingly richer diluent. The result is clamped to 4–40 % O₂.</p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Default is unchanged</p>
+<p>Out of the box the strategy is <strong>Fixed 10 %</strong>, so existing CCR plans produce the same numbers until you turn the toggle on.</p>
+</div>
+<h3 id="choosing-a-strategy">Choosing a strategy<a class="headerlink" href="#choosing-a-strategy" title="Anchor link to this section">&para;</a></h3>
+<p>Both give a hypoxic diluent on a deep dive — the difference is <em>how</em> the oxygen fraction is chosen, and what that buys you.</p>
+<p><strong>Fixed 10 %</strong></p>
 <ul>
-<li><strong>Loop composition at bottom</strong> — the actual mix being breathed (e.g. "32 % O₂ / 37 % He / 31 % N₂")</li>
+<li><em>Advantages</em> — one standard blend to remember, analyse and label; being lean it has a deep open-circuit MOD (breathable as OC bailout to roughly 150 m), so the same diluent can double as emergency gas across most of the dive; nothing to decide per dive.</li>
+<li><em>Disadvantages</em> — on a shallower "deep" dive it is more hypoxic than it needs to be, so its shallow breathable limit sits deeper and a diluent flush lands the loop at a lower PO₂; it does not adapt to the dive.</li>
+</ul>
+<p><strong>Target diluent PPO₂ (1.0 ata)</strong></p>
+<ul>
+<li><em>Advantages</em> — the diluent's PO₂ at the bottom is a known ~1.0 ata, so a diluent flush leaves the loop at a predictable PO₂ (a handy sanity-check against the cells) and never drives it too low; it adapts to depth, giving a richer, more surface-friendly diluent on shallower dives; it matches common field practice.</li>
+<li><em>Disadvantages</em> — the diluent O₂ changes with planned depth, so you may blend, analyse and label a different diluent for each dive; on a shallower dive the richer diluent has a shallower OC MOD, so it covers a narrower band as bailout and you may need extra bailout cylinders.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Rule of thumb</p>
+<p>Want one do-everything diluent that also serves as deep bailout? Keep <strong>Fixed 10 %</strong>. Prefer to tune diluent to each dive — and like a flush to read back a known loop PO₂? Use <strong>Target diluent PPO₂</strong>.</p>
+</div>
+<h3 id="hypoxic-diluent-fine-on-the-loop-not-on-open-circuit">Hypoxic diluent: fine on the loop, not on open circuit<a class="headerlink" href="#hypoxic-diluent-fine-on-the-loop-not-on-open-circuit" title="Anchor link to this section">&para;</a></h3>
+<p>A diluent under about <strong>16 % O₂</strong> is <strong>hypoxic</strong> — at the surface its PO₂ is below ~0.16 ata. That includes the default 10 % diluent (surface PO₂ ≈ 0.10).</p>
+<p><strong>On the loop this is normal and safe.</strong> The solenoid holds your setpoint, so the loop PO₂ — what you actually breathe — does not depend on the diluent's oxygen fraction. Deep CCR dives <em>require</em> a hypoxic diluent so the loop (and any diluent flush) does not become hyperoxic at depth.</p>
+<p>It only matters if you come <strong>off</strong> the loop. Breathed on <strong>open circuit</strong> — a bailout, or a diluent flush in the shallows — a hypoxic diluent is unsafe near the surface: it is breathable only from the depth where its PO₂ reaches ~0.16 ata down to its MOD. The calculator reports that breathable/bailout depth range and flags the diluent as hypoxic, so you can plan a normoxic travel or bailout gas for any open-circuit use in the shallow zone.</p>
+<h3 id="whats-displayed">What's displayed<a class="headerlink" href="#whats-displayed" title="Anchor link to this section">&para;</a></h3>
+<p>The result shows the diluent O₂/He (what is actually in the cylinder), plus:</p>
+<ul>
+<li><strong>Loop composition at bottom</strong> — the mix actually breathed at the setpoint (e.g. "32 % O₂ / 37 % He / 31 % N₂")</li>
 <li><strong>Loop density</strong> at depth</li>
-<li><strong>Bailout range</strong> — the depth range where this diluent can be safely breathed as OC bailout (typically 0–MOD of diluent)</li>
-<li><strong>Hypoxic warning</strong> if the diluent's O₂ &lt; 10 %</li>
+<li><strong>Breathable / bailout range</strong> — the depth band where the diluent is safe as OC bailout (from its shallow hypoxic limit down to its MOD)</li>
+<li><strong>Hypoxic-diluent flag</strong> when the diluent O₂ falls below 10 %</li>
 </ul>
 <h2 id="reading-the-warnings">Reading the warnings<a class="headerlink" href="#reading-the-warnings" title="Anchor link to this section">&para;</a></h2>
 <p>Below the result, depth-specific information appears:</p>
@@ -1995,6 +2156,7 @@
 </table>
 <p>Result: <strong>16/58 trimix</strong> (16 % O₂, 58 % He). Density and narcosis both within limits.</p>
 <h3 id="ccr-diluent-for-60-m-sp-13">CCR diluent for 60 m, SP 1.3<a class="headerlink" href="#ccr-diluent-for-60-m-sp-13" title="Anchor link to this section">&para;</a></h3>
+<p>With the default <strong>Fixed 10 %</strong> strategy:</p>
 <table>
 <thead>
 <tr>
@@ -2021,7 +2183,32 @@
 </tr>
 </tbody>
 </table>
-<p>Result: <strong>10/45</strong> (10 % O₂ normoxic, 45 % He). Loop at depth: 19 % O₂ / 36 % He / 45 % N₂. Density 4.8 g/ℓ. Diluent is fine for OC bailout from 0 m down to MOD (with MOD calculated for raw diluent at 1.6 PPO₂).</p>
+<p>Result: <strong>10/45</strong> (10 % O₂, 45 % He). Loop at depth: 19 % O₂ / 36 % He / 45 % N₂. Density 4.8 g/ℓ. The 10 % diluent is hypoxic — fine to breathe on the loop, but as open-circuit bailout it is usable only from roughly 6 m down to its MOD, so carry a normoxic travel gas for any OC use in the shallows.</p>
+<h3 id="deep-ccr-with-a-target-ppo2-diluent-100-m">Deep CCR with a Target-PPO₂ diluent (100 m)<a class="headerlink" href="#deep-ccr-with-a-target-ppo2-diluent-100-m" title="Anchor link to this section">&para;</a></h3>
+<p>With <strong>Diluent O₂ from target PPO₂</strong> turned on and a 1.0 ata target:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depth</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Trimix</td>
+<td>on</td>
+</tr>
+<tr>
+<td>Target EAD</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>Result: diluent O₂ ≈ <strong>9 %</strong> (1.0 ÷ 11 ata), with helium set to satisfy the EAD/density targets.</p>
 <h2 id="when-to-use-best-mix-vs-modend">When to use Best mix vs MOD/END<a class="headerlink" href="#when-to-use-best-mix-vs-modend" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li><strong>Best mix</strong> — you know the depth, you need the mix</li>
