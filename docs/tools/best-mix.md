@@ -185,3 +185,6 @@ Result: diluent O₂ ≈ **9 %** (1.0 ÷ 11 ata), with helium set to satisfy the
 - **MOD/END** — you have a mix, you want to know where to breathe it
 
 The two are inverses of each other. Best mix derives a mix from a depth. MOD/END derives depths/limits from a mix.
+
+!!! tip "See also"
+    Choosing deep trimix and deco gases? See [Isobaric counterdiffusion & HPNS](../concepts/icd-and-hpns.md) for what happens when you switch from a helium-rich mix to a nitrogen-rich one at depth, and how AeroPlus Deco flags it.
