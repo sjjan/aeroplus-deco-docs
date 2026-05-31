@@ -34,7 +34,7 @@ Has the **bottom** role in CCR. The diluent fills the loop above water and suppl
 - **Bailout EAD** — if you bail out to OC on the diluent, your immediate gas at that depth is the raw diluent
 - **Loop density** — denser diluent means denser loop
 
-The "best diluent" calculator can compute a diluent that satisfies both narcosis and density constraints at your max planned depth.
+The "best diluent" calculator can compute a diluent that satisfies both narcosis and density constraints at your max planned depth. Its oxygen fraction follows the **diluent O₂ strategy** you choose — a fixed 10 %, or one set so the diluent PPO₂ at depth is 1.0 ata — see the [Best mix calculator](../tools/best-mix.md).
 
 ### Oxygen
 
@@ -87,12 +87,13 @@ This lets you compare the same dive on OC vs CCR easily. Switching does **not** 
 
 ## Settings specific to CCR
 
-In **Settings → CCR — O₂ & Hardware**:
+In **Settings → CCR**:
 
 | Setting | Default | Range | What it controls |
 |---|---|---|---|
 | O₂ metabolic rate | 1.5 ℓ/min | 0.1–3.0 | Per-minute O₂ consumption (STPD) |
 | Scrubber capacity | 180 min | 30–480 | Total scrubber endurance before replacement |
 | Bailout switch time | 2 min | 0–5 | Mandatory pause when switching to bailout |
+| Diluent O₂ from target PPO₂ | Off | On / Off | Best-diluent O₂ strategy. Off = fixed 10 %; on = diluent O₂ set so its PPO₂ at depth is 1.0 ata (≈ 9 % at 100 m) |
 
 Plus the standard algorithm settings (GFs, ascent rates, stop interval) all still apply.
