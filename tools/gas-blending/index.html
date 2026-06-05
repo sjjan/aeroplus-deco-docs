@@ -1462,6 +1462,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#two-modes-partial-blending-and-topping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two modes: Partial Blending and Topping Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-partial-pressure-blending-is" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1563,6 +1574,56 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topping-up-predicting-the-resulting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topping up — predicting the resulting mix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topping up — predicting the resulting mix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs-and-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs and output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1739,6 +1800,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#two-modes-partial-blending-and-topping-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two modes: Partial Blending and Topping Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-partial-pressure-blending-is" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1844,6 +1916,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#topping-up-predicting-the-resulting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topping up — predicting the resulting mix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topping up — predicting the resulting mix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs-and-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs and output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worked-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#practical-tips" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1893,6 +2015,12 @@
 <h1 id="gas-blending">Gas blending<a class="headerlink" href="#gas-blending" title="Anchor link to this section">&para;</a></h1>
 <p>The <strong>Gas blending</strong> calculator computes the fill sequence — how much of each gas to add to a cylinder to reach a target mix at target pressure, using partial-pressure blending.</p>
 <p>Open via <strong>App menu → Tools → Gas blending</strong>.</p>
+<h2 id="two-modes-partial-blending-and-topping-up">Two modes: Partial Blending and Topping Up<a class="headerlink" href="#two-modes-partial-blending-and-topping-up" title="Anchor link to this section">&para;</a></h2>
+<p>The Gas blending screen has two tabs, which solve opposite problems:</p>
+<ul>
+<li><strong>Partial Blending</strong> <em>(default)</em> — <em>"I want to end up with mix X at pressure Y."</em> You enter a target mix and target pressure (plus whatever is already in the cylinder) and the app returns the <strong>fill sequence</strong>: how much helium, then oxygen, then top-up gas to add, in order, with optional heat (cooling) compensation. This is the <em>inverse</em> problem — it solves for what to add. The rest of this page describes this mode.</li>
+<li><strong>Topping Up</strong> — <em>"I'm about to add this gas to what's already in the cylinder — what will I end up with?"</em> You enter what's in the cylinder now and the gas you'll top up with, and the app returns the <strong>resulting mix</strong>. This is the <em>forward</em> problem — it predicts the result of a fill you're about to make. See <a href="#topping-up-predicting-the-resulting-mix">Topping up</a> below.</li>
+</ul>
 <h2 id="what-partial-pressure-blending-is">What partial-pressure blending is<a class="headerlink" href="#what-partial-pressure-blending-is" title="Anchor link to this section">&para;</a></h2>
 <p>Partial-pressure blending is the standard tech-fill method:</p>
 <ol>
@@ -2027,6 +2155,19 @@
 <li><strong>Step 3</strong>: Add 126.6 bar of Air (fill to 200 bar)</li>
 </ol>
 <p>Resulting mix: 50/0. Density at 21 m: 1.7 g/ℓ. PPO₂ at 21 m: 1.55. ✓</p>
+<h2 id="topping-up-predicting-the-resulting-mix">Topping up — predicting the resulting mix<a class="headerlink" href="#topping-up-predicting-the-resulting-mix" title="Anchor link to this section">&para;</a></h2>
+<p>The <strong>Topping Up</strong> tab answers the forward question: given what's in the cylinder now and the gas you'll add, what mix do you finish with?</p>
+<h3 id="inputs-and-output">Inputs and output<a class="headerlink" href="#inputs-and-output" title="Anchor link to this section">&para;</a></h3>
+<ul>
+<li><strong>Start pressure</strong> and <strong>Start O₂ / He</strong> — what's in the cylinder right now.</li>
+<li><strong>Top-up O₂ / He</strong> — the gas you'll add. Free entry, so hypoxic trimix top-ups (e.g. 7/70) are fine.</li>
+<li><strong>Finish pressure</strong> — the pressure you'll fill to.</li>
+<li><strong>Result</strong> — the final O₂ / He / N₂. If the resulting O₂ is below 18 % the figure turns <strong>red</strong>, flagging a hypoxic mix that is not breathable at the surface.</li>
+</ul>
+<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Anchor link to this section">&para;</a></h3>
+<p>Topping up a single cylinder is pure partial-pressure addition. The gas already in the cylinder keeps its share; the added gas contributes (finish − start) bar of its own mix; the two combine in proportion to pressure. Because it's one cylinder, <strong>cylinder size doesn't matter</strong> (the volume cancels), and <strong>temperature doesn't matter to the resulting fractions</strong> (all partial pressures scale together). That's why — unlike Partial Blending — there is no heat-compensation control in this tab: you read the finish pressure off your gauge, and the mix is simply whatever the pressures make it.</p>
+<h3 id="worked-example_1">Worked example<a class="headerlink" href="#worked-example_1" title="Anchor link to this section">&para;</a></h3>
+<p>A cylinder holding <strong>120 bar of 18/46</strong>, topped up to <strong>200 bar with 7/70</strong>, ends up at <strong>13.6 / 55.6</strong> (O₂ / He), with the balance N₂ ≈ 30.8 %. The 80 bar of added 7/70 dilutes the oxygen and pulls the helium fraction up toward the top-up gas; because the result is hypoxic (13.6 % O₂), the app shows it in red.</p>
 <h2 id="practical-tips">Practical tips<a class="headerlink" href="#practical-tips" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li><strong>Always drain or check existing fill.</strong> Even residual gas changes the math.</li>

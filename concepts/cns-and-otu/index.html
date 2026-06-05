@@ -875,6 +875,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#surface-recovery-the-90-minute-half-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface recovery — the 90-minute half-time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-strict-are-these-limits-2025-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -906,6 +917,17 @@
     <span class="md-ellipsis">
       
         OTU — Oxygen Tolerance Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-cns-and-otu-figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read the CNS % and OTU figures
       
     </span>
   </a>
@@ -1740,6 +1762,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#surface-recovery-the-90-minute-half-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface recovery — the 90-minute half-time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-strict-are-these-limits-2025-revision" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1771,6 +1804,17 @@
     <span class="md-ellipsis">
       
         OTU — Oxygen Tolerance Units
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-cns-and-otu-figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read the CNS % and OTU figures
       
     </span>
   </a>
@@ -1892,7 +1936,41 @@
 <li><strong>80 % CNS</strong> — typical aggressive ceiling for tech operations</li>
 <li><strong>40–50 % CNS</strong> — recreational tech ceiling</li>
 </ul>
-<p>CNS recovers exponentially during the surface interval — roughly halving every 90 minutes. AeroPlus Deco accounts for this when chaining repetitive plans.</p>
+<p>CNS recovers exponentially during the surface interval — see <a href="#surface-recovery-the-90-minute-half-time">Surface recovery</a> below. AeroPlus Deco accounts for this when chaining repetitive plans.</p>
+<h3 id="surface-recovery-the-90-minute-half-time">Surface recovery — the 90-minute half-time<a class="headerlink" href="#surface-recovery-the-90-minute-half-time" title="Anchor link to this section">&para;</a></h3>
+<p>Once you leave the water and breathe normal air, your CNS loading begins to fall. The convention used throughout technical diving is an <strong>exponential decay with a half-time of about 90 minutes</strong>: every 90 minutes on the surface, the CNS figure roughly halves.</p>
+<table>
+<thead>
+<tr>
+<th>Time on surface</th>
+<th>CNS, starting from 80 %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 min (surfacing)</td>
+<td>80 %</td>
+</tr>
+<tr>
+<td>90 min</td>
+<td>40 %</td>
+</tr>
+<tr>
+<td>180 min</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td>270 min</td>
+<td>10 %</td>
+</tr>
+</tbody>
+</table>
+<p>After roughly 24 hours the residual loading is treated as fully cleared (reset to zero).</p>
+<div class="admonition note">
+<p class="admonition-title">A convention, not hard science</p>
+<p>The 90-minute half-time is widely used — Shearwater computers, the Erik Baker oxygen-toxicity equations, and most planners all apply it — but, like the CNS clock itself, it rests on a thin experimental basis rather than direct evidence. Treat the recovered figure as a planning estimate, in the same spirit as the rest of this page.</p>
+</div>
+<p><strong>In AeroPlus Deco.</strong> When you chain repetitive plans, the <strong>Previous dive</strong> card lets you enter your surface interval. The app decays the previous dive's surfacing CNS by the 90-minute half-time and carries the reduced value into the next plan as its starting CNS — and now also <strong>shows that recovery on the card</strong> (e.g. <em>"CNS recovery: 80 % → 40 % after this surface interval"</em>), so you can see the drop directly. OTU is handled separately and recovers far more slowly (see below).</p>
 <h3 id="how-strict-are-these-limits-2025-revision">How strict are these limits? (2025 revision)<a class="headerlink" href="#how-strict-are-these-limits-2025-revision" title="Anchor link to this section">&para;</a></h3>
 <p>The CNS percentages above derive from NOAA's 1991 exposure tables. It's worth understanding how those numbers came about, because the field's thinking has moved on.</p>
 <p>The 1991 limits were conservative guidelines, not values derived from direct empirical evidence of seizure risk. In practice, technical divers have routinely exceeded them without apparent ill effect — which prompted a formal re-examination.</p>
@@ -1964,6 +2042,40 @@
 </table>
 <p>OTUs decay much slower than CNS — roughly <strong>300 OTU/day</strong> recovery — so they accumulate across a dive trip.</p>
 <p>The Deco plan card shows the OTU total for the planned dive; if you're running repetitive plans, the surface interval card lets you tell the app how long you've been on the surface.</p>
+<h2 id="how-to-read-the-cns-and-otu-figures">How to read the CNS % and OTU figures<a class="headerlink" href="#how-to-read-the-cns-and-otu-figures" title="Anchor link to this section">&para;</a></h2>
+<p>AeroPlus Deco always shows your CNS % and OTU, and these values can't be turned off. They're useful situational awareness — but, as the <a href="#how-strict-are-these-limits-2025-revision">2025 revision</a> above makes clear, they are <strong>planning estimates rather than exact, science-based hard limits</strong> — especially the CNS percentage.</p>
+<p>!!! note 'The CNS "clock" may not rest on hard science'
+    The cumulative CNS % derives from a small, old and highly variable body of data, and there is a growing view in technical diving that the way it is calculated is not well validated — so the number may be telling you less than it appears to. For a clear first-hand discussion, see <em>"Oxygen CNS Calculations: Are They Worth It?"</em> (Deep Wreck Diver): <a href="https://youtu.be/TT9sN4JxNcE">https://youtu.be/TT9sN4JxNcE</a>. The short version: many experienced divers treat the CNS figure as background information and instead manage the thing that actually drives the risk — their <strong>PO₂</strong>.</p>
+<p>To put the numbers in perspective, divers doing very long closed-circuit dives routinely record figures far beyond the conventional limits with no acute problems. On a typical <strong>12–14 hour</strong> cave dive, one diver reported:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>On the dive</th>
+<th>Conventional "limit"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNS oxygen toxicity</td>
+<td><strong>200–300 %</strong></td>
+<td>100 %</td>
+</tr>
+<tr>
+<td>OTU (pulmonary dose)</td>
+<td><strong>over 1,000</strong></td>
+<td>~300 / day</td>
+</tr>
+<tr>
+<td>Symptoms</td>
+<td>none acute; occasional mild chest "tenderness"</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Such dives are made workable with a modest setpoint, redundant rebreathers, and an in-water habitat for the long decompression. The CNS figure (2–3× the "limit", no event) is the clearest reason the cumulative clock is seen as conservative and weakly predictive. The OTU figure behaves more as expected — a high dose produced a measurable but reversible, low-stakes effect — which makes OTU the better-grounded of the two.</p>
+<p><strong>What does not change.</strong> Oxygen toxicity itself is real and serious: a CNS hit is an underwater convulsion, usually fatal, and individual susceptibility varies widely, so no number makes the risk zero. The takeaway is not to ignore oxygen — it is to manage your <strong>working PO₂</strong> directly: keep it modest, avoid spikes, and don't let a comfortable (or an alarming) CNS % make the decision for you.</p>
+<p><strong>Bottom line in this app.</strong> The CNS % and OTU values are always on screen and cannot be hidden — but you can treat them as guidance and situational awareness rather than an exact, science-based hard ceiling. Watch your PO₂, accept that people differ, and use the CNS % as one soft input among several.</p>
 <h2 id="how-aeroplus-deco-handles-them">How AeroPlus Deco handles them<a class="headerlink" href="#how-aeroplus-deco-handles-them" title="Anchor link to this section">&para;</a></h2>
 <ul>
 <li><strong>CNS and OTU</strong> are computed continuously throughout the dive (during descent, bottom, and ascent — including deco gas use)</li>
@@ -1991,6 +2103,7 @@
 <ul>
 <li>Hoyt, J. T., Murphy, F. G., Pollock, N. W., Kernagis, D., Bird, N., Menduno, M., Bright, J., &amp; Mitchell, S. J. (2025). <em>Revised guideline for central nervous system oxygen toxicity exposure limits when using an inspired PO₂ of 1.3 atmospheres.</em> Diving and Hyperbaric Medicine, 55(3), 262–270.</li>
 <li>NOAA — <em>Diving Manual</em> (CNS and OTU tables)</li>
+<li>Deep Wreck Diver — <em>Oxygen CNS Calculations: Are They Worth It?</em> (<a href="https://youtu.be/TT9sN4JxNcE">https://youtu.be/TT9sN4JxNcE</a>) — first-hand discussion of why the CNS clock is treated as soft guidance</li>
 <li>IANTD — <em>Encyclopedia of Technical Diving</em></li>
 </ul>
 
