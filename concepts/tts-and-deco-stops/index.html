@@ -878,6 +878,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#maximum-tts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum TTS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum TTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it's calculated
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1833,6 +1861,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#maximum-tts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum TTS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum TTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it's calculated
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1933,6 +1989,19 @@
 <p>Start your ascent when <em>either</em> your dive computer shows TTS ≤ your target, <em>or</em> your gas reaches the minimum reserve — whichever comes first.</p>
 </blockquote>
 <p>Common settings are 10–15 min for a recreational tech dive, longer for trimix work. The number you enter is just for your reference — it doesn't change the calculation.</p>
+<h2 id="maximum-tts">Maximum TTS<a class="headerlink" href="#maximum-tts" title="Anchor link to this section">&para;</a></h2>
+<p>Beneath the Target TTS field the app also shows your <strong>maximum TTS</strong> — the time-to-surface you would reach if you stayed down until a gas limit binds. It is the hard ceiling that keeps you out of your reserve, and it is usually larger than your planned TTS, since most plans surface with some unused gas.</p>
+<h3 id="how-its-calculated">How it's calculated<a class="headerlink" href="#how-its-calculated" title="Anchor link to this section">&para;</a></h3>
+<p>It isn't estimated from a formula. AeroPlus Deco re-runs your <strong>entire decompression plan</strong> repeatedly, lengthening the last bottom segment a little more on each pass (a binary search), so every trial is a complete, valid schedule for that longer bottom time. At each trial it checks whether you would still be within your gas:</p>
+<ul>
+<li><strong>Open circuit</strong> — your back gas must stay above the rock-bottom reserve (recomputed for each longer profile), and the app <strong>iterates through every enabled deco gas</strong> to confirm none would run dry at the longer runtime — more bottom time means more decompression, and therefore more deco-gas demand. Whichever binds first — back gas reaching the reserve, or a deco gas running out — sets the limit. The readout names it and shows the deco-gas demand at that maximum, per cylinder, against the planned figure.</li>
+<li><strong>Closed circuit</strong> — back gas isn't the limit (the loop is recirculated, not consumed), so each trial instead checks <strong>scrubber endurance</strong>, <strong>onboard O₂</strong> at your metabolic rate, and — in independent bailout mode — <strong>bailout sufficiency</strong>. Whichever runs out first sets the limit; in group bailout mode the team is responsible for bailout, so only scrubber and O₂ bound the maximum.</li>
+</ul>
+<p>The app reports the TTS at the last bottom time that still passes every applicable check, never below your planned TTS. Plan and turn at your target TTS for margin; treat the maximum as the ceiling you should never exceed. Full detail is on the <a href="../rock-bottom/#maximum-tts-and-the-ascent-trigger">rock bottom</a> and <a href="../../ccr/oxygen-and-scrubber/#maximum-tts-on-ccr">maximum TTS on CCR</a> pages.</p>
+<div class="admonition warning">
+<p class="admonition-title">It depends on your assumptions</p>
+<p>The maximum TTS is only as good as your inputs. It assumes you ascend at exactly the rate set in preferences and execute every decompression stop to the letter, and it is driven by your SAC (open circuit) or your metabolic O₂, SAC and scrubber settings (CCR). Double-check those and plan conservatively — real-world consumption is often higher than planned.</p>
+</div>
 
 
 

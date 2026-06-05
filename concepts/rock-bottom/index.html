@@ -902,6 +902,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#maximum-tts-and-the-ascent-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum TTS and the ascent trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum TTS and the ascent trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it's calculated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reading-the-gas-plan-bars" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1711,6 +1750,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#maximum-tts-and-the-ascent-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum TTS and the ascent trigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum TTS and the ascent trigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-calculated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it's calculated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reading-the-gas-plan-bars" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1834,6 +1912,29 @@
 </tbody>
 </table>
 <p>Only <strong>bottom-gas</strong> cylinders get a reserve — deco gases are short-duration and you switch off them quickly. Travel gases get a smaller calculated reserve (configurable as <strong>Travel gas reserve</strong> in settings, default 50 bar) since they're emergency-relevant but consumed faster.</p>
+<h2 id="maximum-tts-and-the-ascent-trigger">Maximum TTS and the ascent trigger<a class="headerlink" href="#maximum-tts-and-the-ascent-trigger" title="Anchor link to this section">&para;</a></h2>
+<p>Two separate things tell you when to leave the bottom, and they are not the same number:</p>
+<ul>
+<li><strong>Planned TTS</strong> — the time-to-surface of the runtime you entered. It's what your computer will show at your planned turn time.</li>
+<li><strong>Maximum TTS</strong> — the time-to-surface you would face if you stayed down until your <strong>back gas is drawn down to the rock-bottom reserve</strong>, with your deco gas still sufficient. It's the latest TTS you could reach without eating into your reserve.</li>
+</ul>
+<p>Because a typical plan surfaces with some unused back gas, the maximum TTS is <strong>larger</strong> than the planned TTS. It's shown directly under the <strong>Target TTS</strong> field:</p>
+<blockquote>
+<p><strong>Maximum TTS ≈ N min</strong> — the longest your computer's TTS can reach before your back gas would hit the rock-bottom reserve (deco gas still sufficient). Turn at your target TTS for margin; never let TTS exceed this.</p>
+</blockquote>
+<h3 id="how-its-calculated">How it's calculated<a class="headerlink" href="#how-its-calculated" title="Anchor link to this section">&para;</a></h3>
+<p>AeroPlus Deco doesn't estimate this from a single formula — it re-runs your <strong>entire decompression plan</strong> repeatedly, lengthening the last bottom segment a little more on each pass (a binary search), so every trial is a complete, valid schedule for that longer bottom time. At each trial, on open circuit, it checks two things:</p>
+<ol>
+<li><strong>Back gas vs reserve</strong> — your bottom-gas consumption hasn't dropped the cylinder below the rock-bottom reserve. The reserve is recomputed for each longer profile (though, being a direct ascent to your first deco gas, it barely changes with bottom time).</li>
+<li><strong>Deco gas</strong> — it <strong>iterates through every enabled deco gas</strong> and confirms none would run dry at the longer runtime, since more bottom time means more decompression and therefore more deco-gas demand.</li>
+</ol>
+<p>It stops at the last bottom time that still passes both checks and reports the TTS there, never below your planned TTS. Whichever limit binds first (back gas reaching the reserve, or a deco gas running out) is named in the readout, and the <strong>deco-gas demand at that maximum is shown per cylinder</strong> against the planned figure, so you can confirm you're carrying enough.</p>
+<h3 id="using-it">Using it<a class="headerlink" href="#using-it" title="Anchor link to this section">&para;</a></h3>
+<p>Plan and turn at your target/planned TTS, but know the maximum TTS is the hard ceiling set by gas. If you ever drift past your plan, that ceiling — not the planned number — is what keeps you out of your reserve. If you set a <strong>Target TTS</strong> above this maximum, the app flags it in red (it would draw into your reserve); a target between your planned and maximum TTS is allowed and shown as an amber advisory rather than an error.</p>
+<div class="admonition warning">
+<p class="admonition-title">Check your assumptions and plan conservatively</p>
+<p>The reserve and the maximum TTS are computed from the values you entered, and they assume you <strong>ascend at exactly the rate set in preferences and execute every decompression stop to the letter</strong>. Double-check your normal and emergency SAC, your ascent rate and your deco settings, and plan conservatively — real-world consumption (cold, workload, stress) is often higher than planned, which pulls the maximum TTS down.</p>
+</div>
 <h2 id="reading-the-gas-plan-bars">Reading the gas plan bars<a class="headerlink" href="#reading-the-gas-plan-bars" title="Anchor link to this section">&para;</a></h2>
 <p>In the <strong>Gas plan card</strong>, each cylinder is drawn as a stacked bar:</p>
 <table>
