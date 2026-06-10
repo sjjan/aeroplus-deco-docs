@@ -4,6 +4,14 @@ The **Gas blending** calculator computes the fill sequence — how much of each 
 
 Open via **App menu → Tools → Gas blending**.
 
+## Two modes: Partial Blending and Topping Up
+
+The Gas blending screen has two tabs, which solve opposite problems:
+
+- **Partial Blending** *(default)* — *"I want to end up with mix X at pressure Y."* You enter a target mix and target pressure (plus whatever is already in the cylinder) and the app returns the **fill sequence**: how much helium, then oxygen, then top-up gas to add, in order, with optional heat (cooling) compensation. This is the *inverse* problem — it solves for what to add. The rest of this page describes this mode.
+- **Topping Up** — *"I'm about to add this gas to what's already in the cylinder — what will I end up with?"* You enter what's in the cylinder now and the gas you'll top up with, and the app returns the **resulting mix**. This is the *forward* problem — it predicts the result of a fill you're about to make. See [Topping up](#topping-up-predicting-the-resulting-mix) below.
+
+
 ## What partial-pressure blending is
 
 Partial-pressure blending is the standard tech-fill method:
@@ -100,6 +108,25 @@ The calculator outputs:
 3. **Step 3**: Add 126.6 bar of Air (fill to 200 bar)
 
 Resulting mix: 50/0. Density at 21 m: 1.7 g/ℓ. PPO₂ at 21 m: 1.55. ✓
+
+## Topping up — predicting the resulting mix
+
+The **Topping Up** tab answers the forward question: given what's in the cylinder now and the gas you'll add, what mix do you finish with?
+
+### Inputs and output
+
+- **Start pressure** and **Start O₂ / He** — what's in the cylinder right now.
+- **Top-up O₂ / He** — the gas you'll add. Free entry, so hypoxic trimix top-ups (e.g. 7/70) are fine.
+- **Finish pressure** — the pressure you'll fill to.
+- **Result** — the final O₂ / He / N₂. If the resulting O₂ is below 18 % the figure turns **red**, flagging a hypoxic mix that is not breathable at the surface.
+
+### How it works
+
+Topping up a single cylinder is pure partial-pressure addition. The gas already in the cylinder keeps its share; the added gas contributes (finish − start) bar of its own mix; the two combine in proportion to pressure. Because it's one cylinder, **cylinder size doesn't matter** (the volume cancels), and **temperature doesn't matter to the resulting fractions** (all partial pressures scale together). That's why — unlike Partial Blending — there is no heat-compensation control in this tab: you read the finish pressure off your gauge, and the mix is simply whatever the pressures make it.
+
+### Worked example
+
+A cylinder holding **120 bar of 18/46**, topped up to **200 bar with 7/70**, ends up at **13.6 / 55.6** (O₂ / He), with the balance N₂ ≈ 30.8 %. The 80 bar of added 7/70 dilutes the oxygen and pulls the helium fraction up toward the top-up gas; because the result is hypoxic (13.6 % O₂), the app shows it in red.
 
 ## Practical tips
 

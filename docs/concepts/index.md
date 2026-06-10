@@ -11,5 +11,6 @@ You don't need to read them in order — each page stands alone. If you're new t
 - **[Tissue saturation & GF99](tissue-saturation.md)** — Bühlmann compartments, M-values, and reading the GF99 chart
 - **[TTS & deco stops](tts-and-deco-stops.md)** — what time-to-surface means and how the runtime schedule is built
 - **[Gas density](gas-density.md)** — the 5.2 and 6.2 g/ℓ thresholds and how helium addresses them
+- **[ICD & HPNS](icd-and-hpns.md)** — isobaric counterdiffusion on deep gas switches, high-pressure nervous syndrome, and what the app does with each
 - **[CNS & OTU](cns-and-otu.md)** — central nervous system and pulmonary oxygen toxicity tracking
 - **[Rock bottom](rock-bottom.md)** — minimum-gas reserve calculation and the gas plan card

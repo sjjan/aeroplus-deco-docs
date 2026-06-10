@@ -52,6 +52,12 @@ For example, at 30 m (Pabs ≈ 4 ata):
 
 Higher setpoint = more O₂ in the loop = less inert gas = faster off-gassing on ascent.
 
+## Setpoint and displayed TTS
+
+Most rebreather computers run a **fixed bottom setpoint** (e.g. 1.3) during the dive and only move to the higher **deco setpoint** (e.g. 1.5) once you begin the decompression. While you are still on the bottom, the computer's **TTS is therefore figured at the bottom setpoint** — it has not yet accounted for the richer loop you will actually breathe on the stops. A higher PPO₂ on deco means less inert gas and faster off-gassing, so the real decompression is shorter than the bottom-setpoint TTS implies.
+
+The TTS shown on your handset at depth is therefore **conservative** — your actual time to surface usually drops once you switch to the deco setpoint. AeroPlus Deco mirrors this: in CCR mode it shows the TTS your computer would display at the bottom setpoint and notes that switching to the deco setpoint shortens it to the planned value. Plan your gas and consumables around the longer (bottom-SP) figure, and treat the drop after the switch as margin in your favour — never the other way round.
+
 ## Typical setpoint choices
 
 ### Recreational CCR

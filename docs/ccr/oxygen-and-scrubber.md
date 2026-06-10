@@ -89,6 +89,25 @@ In the **Rock bottom & TTS card** (CCR mode):
 
 A warning is raised if **Remaining** goes below a buffer (default: 10 min of margin).
 
+## Maximum TTS on CCR
+
+On a rebreather the diluent loop is **effectively unlimited** for normal diving, so the maximum TTS isn't set by back gas. Instead AeroPlus Deco extends your bottom time until the first of three consumables would be exhausted — **bailout gas, scrubber endurance, or onboard oxygen** (at your metabolic rate) — and reports the TTS at that point.
+
+> **Maximum TTS ≈ N min** (shown at your bottom setpoint; it drops once you switch to the deco setpoint) — the longest before your bailout, scrubber or O₂ would be exhausted. Turn at your target TTS for margin; never exceed this.
+
+### How it's checked
+
+Exactly as on open circuit, the app re-runs the full plan repeatedly, lengthening the last bottom segment a little more on each pass (a binary search). At each trial it checks three consumables, all of which grow with a longer dive:
+
+1. **Scrubber** — time already used plus this dive's total duration (bottom time *plus* the ascent and deco it implies) stays within scrubber capacity.
+2. **Oxygen** — onboard O₂ consumed (metabolic plus setpoint maintenance) stays within what the cylinder holds, at your configured metabolic rate.
+3. **Bailout** — *independent mode only* — your bailout still covers an open-circuit ascent from depth. In **group** bailout mode this is the dive team's responsibility and is **not** used as a limit, so only scrubber and oxygen bound the maximum there.
+
+It stops at the last bottom time that passes all applicable checks and reports the TTS there (at your bottom setpoint), never below your planned TTS. The readout **names whichever consumable binds first**. The diluent loop itself is not a limit — it is recirculated, not consumed.
+
+!!! warning "Check your rates and plan conservatively"
+    The maximum TTS depends on your metabolic O₂ rate, your SAC (for bailout) and your scrubber assumptions, and it assumes you **ascend at exactly the rate set in preferences and execute every decompression stop to the letter**. Double-check all of these and plan conservatively — see [Conservative practice](#conservative-practice). Treat the maximum TTS as a ceiling, not a target.
+
 ## Practical patterns
 
 ### Single tech CCR dive

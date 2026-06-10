@@ -82,6 +82,8 @@ Each row gives:
 
 Deco stop rows are tinted **light green**. Gas-switch marker rows are tinted **light blue**.
 
+Not seeing a stop at every depth (e.g. 18 m then 9 m), or unsure when the slower deco ascent rate applies? See [When a stop is skipped](../concepts/tts-and-deco-stops.md#when-a-stop-is-skipped) and [Ascent rate during decompression](../concepts/tts-and-deco-stops.md#ascent-rate-during-decompression).
+
 ## Gas plan card
 
 ### Bar chart
