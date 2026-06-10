@@ -868,6 +868,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#when-a-stop-is-skipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a stop is skipped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascent-rate-during-decompression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ascent rate during decompression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ascent-trigger" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1851,6 +1873,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#when-a-stop-is-skipped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When a stop is skipped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascent-rate-during-decompression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ascent rate during decompression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ascent-trigger" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1983,6 +2027,23 @@
 <p>The <strong>stop interval</strong> (Settings → Deco stop interval) controls the spacing of valid stop depths. Default is 3 m, producing stops at 3, 6, 9, 12, 15, 18, 21, 24… metres. Some agencies and computers use 1 m or 2 m intervals — set it to match your reference computer for direct comparison.</p>
 <h2 id="last-stop">Last stop<a class="headerlink" href="#last-stop" title="Anchor link to this section">&para;</a></h2>
 <p>The <strong>last stop</strong> (Settings → Last deco stop) is the shallowest mandated stop, even when the algorithm allows surfacing. Default is 6 m. Most agencies recommend 6 m for OC and 3 m for CCR; some divers run 3 m as a "safety stop" regardless of obligation.</p>
+<h2 id="when-a-stop-is-skipped">When a stop is skipped<a class="headerlink" href="#when-a-stop-is-skipped" title="Anchor link to this section">&para;</a></h2>
+<p>AeroPlus Deco follows the decompression <strong>ceiling</strong> as a continuous curve and lists a stop only at the depths where the model actually requires you to wait. If, by the time you reach a given depth, your tissues have already off-gassed enough that no time is owed there, that depth simply does not appear in the schedule.</p>
+<p>This is why a plan can show a first stop at 18 m and then the next at 9 m, with nothing at 15 m or 12 m. It is not a missing stop — the obligation at those depths has genuinely fallen to zero.</p>
+<p>The effect is clearest right after a gas switch. Moving onto a rich decompression gas (say EAN50, or oxygen) sharply lowers the inert gas you are breathing and speeds up off-gassing, so the ceiling can rise past several stop depths during a single hold. A richer gas collapses the intermediate stops to nothing. This is ordinary gradient-factor behaviour, and it is why a modern dive computer will often show its first <em>real</em> stop at 9 m or 6 m on a dive where a much deeper first stop might have been expected.</p>
+<p>Some other planners and computers present the same ascent differently: they print a line at <strong>every</strong> stop interval from the first stop to the surface and apply a <strong>minimum stop of one minute</strong> to any depth that carries even a few seconds of obligation — a "trapeze" ladder (18, 15, 12, 9, 6, 3 m, each at least a minute). AeroPlus Deco does not insert these one-minute placeholders, so its list is shorter and shows larger gaps between the stops it does print. The underlying decompression is identical; only the presentation differs, and the figures that matter — total decompression time and time-to-surface — come out the same either way.</p>
+<h2 id="ascent-rate-during-decompression">Ascent rate during decompression<a class="headerlink" href="#ascent-rate-during-decompression" title="Anchor link to this section">&para;</a></h2>
+<p>AeroPlus Deco uses two ascent rates, both set in <strong>Settings → Diver &amp; gas</strong>:</p>
+<ul>
+<li><strong>Ascent speed</strong> — the rate used to climb from the bottom toward the first decompression stop (default 10 m/min).</li>
+<li><strong>Deco ascent speed</strong> — the rate used between stops once decompression has begun, usually set slower (for example 3 m/min).</li>
+</ul>
+<p>The slower deco rate takes effect <strong>from the first decompression stop onward</strong> — on the legs from the first stop up to each shallower stop and on to the surface. It does <strong>not</strong> start simply because you have switched to a decompression gas.</p>
+<p>This matters whenever your first gas switch is <em>deeper</em> than your first stop. Suppose you switch to 50/0 at 21 m but the first stop is at 9 m: the whole climb from the bottom up to 9 m — including the leg through the 21 m switch — is flown at the normal ascent speed. The slower deco rate governs only the staged portion, 9 m → 6 m → 3 m → surface. The gas switch still adds its own fixed pause (<strong>Settings → Gas switch time</strong>), but it does not change the ascent rate.</p>
+<div class="admonition note">
+<p class="admonition-title">Tied to the first stop, not the gas</p>
+<p>The deco ascent rate is keyed to the <strong>first stop depth</strong>, not to the gas you happen to be breathing. The faster rate gets you to where decompression actually begins; the slower rate then governs the decompression itself.</p>
+</div>
 <h2 id="ascent-trigger">Ascent trigger<a class="headerlink" href="#ascent-trigger" title="Anchor link to this section">&para;</a></h2>
 <p>In the <strong>Rock bottom &amp; TTS</strong> card, the <strong>Target TTS</strong> field lets you set a personal ascent trigger:</p>
 <blockquote>
