@@ -103,6 +103,7 @@ nav:
       - Reading the output: planning/reading-the-output.md
       - Contingency plans: planning/contingency-plans.md
       - Sharing & backup: planning/sharing-and-backup.md
+      - Checklists: planning/checklists.md
   - CCR diving:
       - ccr/index.md
       - Setup: ccr/setup.md
