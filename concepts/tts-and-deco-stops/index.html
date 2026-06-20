@@ -2035,7 +2035,7 @@
 </code></pre></div>
 <p>This reads: <strong>hold at 21.0 m, total runtime 28 min, stop duration +3 min, gas 16/58</strong>.</p>
 <ul>
-<li><strong>Depth</strong> — the stop depth (snapped to your stop interval, default 3 m)</li>
+<li><strong>Depth</strong> — the stop depth (snapped to the fixed 3 m stop grid)</li>
 <li><strong>Runtime</strong> — total elapsed dive time at this point</li>
 <li><strong>Duration</strong> — how long this stop lasts (with <code>+</code> prefix to distinguish from runtime)</li>
 <li><strong>Gas</strong> (OC) — the cylinder mix used at this stop (e.g. <code>16/58</code>, <code>50/0</code>); a ⊙ prefix means a gas switch happened just before</li>
@@ -2047,14 +2047,9 @@
 </code></pre></div>
 <p>This represents the planned pause to switch regulators, verify the mix, and stabilise. The duration (default 1 min) is configurable in <strong>Settings → Gas switch time</strong>.</p>
 <h2 id="stop-durations-and-rounding">Stop durations and rounding<a class="headerlink" href="#stop-durations-and-rounding" title="Anchor link to this section">&para;</a></h2>
-<p>The algorithm computes raw stop durations as decimals and then rounds. Two options:</p>
-<ul>
-<li><strong>Round stop times</strong> (Settings → Round stop times) — rounds each stop <em>up</em> to the nearest whole minute, matching dive computers like Shearwater. On by default.</li>
-<li><strong>Off</strong> — keeps decimal precision, useful for comparing planners.</li>
-</ul>
-<p>The total deco time and total runtime adjust accordingly.</p>
+<p>The algorithm computes raw stop durations as decimals, then rounds each stop <em>up</em> to the nearest whole minute — matching dive computers like Shearwater. Total deco time and total runtime follow from the rounded stops.</p>
 <h2 id="stop-interval">Stop interval<a class="headerlink" href="#stop-interval" title="Anchor link to this section">&para;</a></h2>
-<p>The <strong>stop interval</strong> (Settings → Deco stop interval) controls the spacing of valid stop depths. Default is 3 m, producing stops at 3, 6, 9, 12, 15, 18, 21, 24… metres. Some agencies and computers use 1 m or 2 m intervals — set it to match your reference computer for direct comparison.</p>
+<p>Decompression stops sit on a fixed <strong>3 m grid</strong> — 3, 6, 9, 12, 15, 18, 21, 24… metres — the standard used by the great majority of agencies and dive computers.</p>
 <h2 id="last-stop">Last stop<a class="headerlink" href="#last-stop" title="Anchor link to this section">&para;</a></h2>
 <p>The <strong>last stop</strong> (Settings → Last deco stop) is the shallowest mandated stop, even when the algorithm allows surfacing. Default is 6 m. Most agencies recommend 6 m for OC and 3 m for CCR; some divers run 3 m as a "safety stop" regardless of obligation.</p>
 <h2 id="when-a-stop-is-skipped">When a stop is skipped<a class="headerlink" href="#when-a-stop-is-skipped" title="Anchor link to this section">&para;</a></h2>
