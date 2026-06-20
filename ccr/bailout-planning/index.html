@@ -1956,16 +1956,20 @@
 <p>When ticked, AeroPlus Deco adds your diluent to the bailout gas pool and breathes it open-circuit — no setpoint, no oxygen boost, just the raw diluent mix at depth. A <strong>descent reserve</strong> (default 50 bar) is held back, since the diluent has already done work keeping the loop topped up on the way down.</p>
 <p>Because the diluent is usually your <em>leanest</em> (most hypoxic) gas, the plan starts the bailout on the diluent at maximum depth and switches to richer carried gases as you ascend — the natural open-circuit progression.</p>
 <h2 id="the-bailout-decompression-schedule">The bailout decompression schedule<a class="headerlink" href="#the-bailout-decompression-schedule" title="Anchor link to this section">&para;</a></h2>
-<p>The schedule is shown as an open-circuit stop table, the same format as an OC dive plan:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>→   75.0   73 min   +2       18/60 (dil)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>↗   36.0   71 min   +3:54    18/60 (dil)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→   36.0   67 min   +1:10    18/60 (dil)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>⊙   33.0   66 min   +1       ⊙ 16/58
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>↗   30.0   65 min   +2       16/58
+<p>The schedule is shown as an open-circuit stop table, in the same runtime-based format as the main deco plan:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>→   75.0   19 min   +2     18/60 (dil)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>↗   36.0   22 min   +3     18/60 (dil)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>→   36.0   24 min   +2     18/60 (dil)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>⊙   33.0   26 min   +2     ⊙ 16/58
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>→   30.0   28 min   +2     16/58
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> …
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⊙   21.0   56 min   +1       ⊙ 50/0
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>→   21.0   55 min   +1:10    50/0
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>⊙   21.0   34 min   +2     ⊙ 50/0
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>→   18.0   36 min   +2     50/0
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> …
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>⊙    6.0   52 min   +2     ⊙ 100/0
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>→    6.0   60 min   +8     100/0
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>→    3.0   78 min   +18    100/0
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>↗    0.0   78 min   +0     100/0
 </code></pre></div>
 <table>
 <thead>
@@ -1984,12 +1988,12 @@
 <td>Stop depth in metres</td>
 </tr>
 <tr>
-<td><strong>TTS</strong></td>
-<td>Time-to-surface from that point, on bailout</td>
+<td><strong>Runtime</strong></td>
+<td>Cumulative runtime, continuing from the dive — it starts at the dive's bottom-phase runtime at the moment of bailout, not from zero</td>
 </tr>
 <tr>
 <td><strong>Duration</strong></td>
-<td>Time spent on that row (<code>+m</code> or <code>+m:ss</code>)</td>
+<td>Whole-minute time on that row, with any folded 3 m ascent included</td>
 </tr>
 <tr>
 <td><strong>Gas</strong></td>
@@ -1997,8 +2001,14 @@
 </tr>
 </tbody>
 </table>
+<p>A few things about how the table reads:</p>
+<ul>
+<li><strong>The runtime continues from the dive.</strong> Bailout is assumed from the most critical point — the end of the bottom phase, just before ascent — so the Runtime column begins at that dive runtime rather than restarting at zero. The total bailout TTS (time from bailout to the surface) is shown in the summary line directly below the table.</li>
+<li><strong>3 m ascents are folded in.</strong> A single 3 m step between stops is only a few seconds, so it isn't drawn as its own line — its time is rolled into the next stop's duration. A larger gap (where intermediate levels were skipped) keeps its own ascent (↗) line, and the first ascent to the first stop and the final ascent to the surface are always shown.</li>
+<li><strong>Durations are whole minutes</strong>, derived from the rounded runtimes, so they always sum to the runtime without drift.</li>
+</ul>
 <h3 id="gas-switches-cost-time">Gas switches cost time<a class="headerlink" href="#gas-switches-cost-time" title="Anchor link to this section">&para;</a></h3>
-<p>Every ⊙ row is a real open-circuit gas switch and is charged your configured <strong>Gas switch time</strong> — the pause while you change regulators and confirm the new gas. That pause is added to the bailout TTS and to the gas required, exactly as it would be in the water.</p>
+<p>Every ⊙ row is a real open-circuit gas switch and is charged your configured <strong>Gas switch time</strong> — the pause while you change regulators and confirm the new gas. That pause is added to the runtime and to the gas required, exactly as it would be in the water.</p>
 <p>This includes the <strong>diluent → carried-gas handoff</strong>. When you are bailed out on the diluent and its usable volume runs out, the plan switches you to the next carried gas that is still breathable at that depth. AeroPlus Deco models this as a genuine ⊙ switch at the handoff depth, with the switch time and switch gas accounted for — not as a free, instant change.</p>
 <h2 id="bailout-tts-vs-maximum-loop-tts">Bailout TTS vs maximum loop TTS<a class="headerlink" href="#bailout-tts-vs-maximum-loop-tts" title="Anchor link to this section">&para;</a></h2>
 <p>Two different time-to-surface figures appear for a CCR plan, and they answer different questions:</p>
