@@ -59,10 +59,10 @@ The gas calculations in AeroPlus Deco — rock bottom, gas plan, bailout suffici
 Closed-circuit rebreather diving is significantly more complex than open circuit. The CCR planning features assume:
 
 - Correct setpoint values entered for your unit
-- Realistic O₂ metabolic rate
-- Honest scrubber capacity (typically derated 25–40 % from the manufacturer's figure)
 - Bailout cylinders appropriate for your unit and dive plan
 - A trained, current CCR diver operating the unit
+
+Oxygen consumption and scrubber endurance are **not calculated** by the app. Managing your O₂ supply and absorbent duration is entirely yours — either can end a dive well before your bailout gas or decompression obligation does.
 
 The bailout sufficiency check is a calculation, not a complete validation — it does not verify that you have the right *type* of gas for the depth ranges involved, only that the volume is sufficient. Verify mix compatibility manually.
 

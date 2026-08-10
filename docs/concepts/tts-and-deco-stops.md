@@ -38,7 +38,7 @@ Deco stops are **highlighted in light green** to distinguish them from ascent or
 
 This reads: **hold at 21.0 m, total runtime 28 min, stop duration +3 min, gas 16/58**.
 
-- **Depth** — the stop depth (snapped to your stop interval, default 3 m)
+- **Depth** — the stop depth (snapped to the fixed 3 m stop grid)
 - **Runtime** — total elapsed dive time at this point
 - **Duration** — how long this stop lasts (with `+` prefix to distinguish from runtime)
 - **Gas** (OC) — the cylinder mix used at this stop (e.g. `16/58`, `50/0`); a ⊙ prefix means a gas switch happened just before
@@ -56,16 +56,11 @@ This represents the planned pause to switch regulators, verify the mix, and stab
 
 ## Stop durations and rounding
 
-The algorithm computes raw stop durations as decimals and then rounds. Two options:
-
-- **Round stop times** (Settings → Round stop times) — rounds each stop *up* to the nearest whole minute, matching dive computers like Shearwater. On by default.
-- **Off** — keeps decimal precision, useful for comparing planners.
-
-The total deco time and total runtime adjust accordingly.
+The algorithm computes raw stop durations as decimals, then rounds each stop *up* to the nearest whole minute — matching dive computers like Shearwater. Total deco time and total runtime follow from the rounded stops.
 
 ## Stop interval
 
-The **stop interval** (Settings → Deco stop interval) controls the spacing of valid stop depths. Default is 3 m, producing stops at 3, 6, 9, 12, 15, 18, 21, 24… metres. Some agencies and computers use 1 m or 2 m intervals — set it to match your reference computer for direct comparison.
+Decompression stops sit on a fixed **3 m grid** — 3, 6, 9, 12, 15, 18, 21, 24… metres — the standard used by the great majority of agencies and dive computers.
 
 ## Last stop
 
@@ -112,9 +107,9 @@ Beneath the Target TTS field the app also shows your **maximum TTS** — the tim
 It isn't estimated from a formula. AeroPlus Deco re-runs your **entire decompression plan** repeatedly, lengthening the last bottom segment a little more on each pass (a binary search), so every trial is a complete, valid schedule for that longer bottom time. At each trial it checks whether you would still be within your gas:
 
 - **Open circuit** — your back gas must stay above the rock-bottom reserve (recomputed for each longer profile), and the app **iterates through every enabled deco gas** to confirm none would run dry at the longer runtime — more bottom time means more decompression, and therefore more deco-gas demand. Whichever binds first — back gas reaching the reserve, or a deco gas running out — sets the limit. The readout names it and shows the deco-gas demand at that maximum, per cylinder, against the planned figure.
-- **Closed circuit** — back gas isn't the limit (the loop is recirculated, not consumed), so each trial instead checks **scrubber endurance**, **onboard O₂** at your metabolic rate, and — in independent bailout mode — **bailout sufficiency**. Whichever runs out first sets the limit; in group bailout mode the team is responsible for bailout, so only scrubber and O₂ bound the maximum.
+- **Closed circuit** — back gas isn't the limit (the loop is recirculated, not consumed), and neither oxygen nor scrubber is modelled, so each trial checks only **bailout sufficiency**: could you still reach the surface on open circuit with the gas you carry? This applies in independent bailout mode; in group mode bailout is the team's responsibility and nothing bounds the maximum. Your O₂ supply and absorbent duration remain **your** limits to manage — either may bind long before bailout does.
 
 The app reports the TTS at the last bottom time that still passes every applicable check, never below your planned TTS. Plan and turn at your target TTS for margin; treat the maximum as the ceiling you should never exceed. Full detail is on the [rock bottom](rock-bottom.md#maximum-tts-and-the-ascent-trigger) and [maximum TTS on CCR](../ccr/oxygen-and-scrubber.md#maximum-tts-on-ccr) pages.
 
 !!! warning "It depends on your assumptions"
-    The maximum TTS is only as good as your inputs. It assumes you ascend at exactly the rate set in preferences and execute every decompression stop to the letter, and it is driven by your SAC (open circuit) or your metabolic O₂, SAC and scrubber settings (CCR). Double-check those and plan conservatively — real-world consumption is often higher than planned.
+    The maximum TTS is only as good as your inputs. It assumes you ascend at exactly the rate set in preferences and execute every decompression stop to the letter, and it is driven by your SAC — your normal and emergency rates on open circuit, your emergency rate for bailout on CCR. Double-check those and plan conservatively — real-world consumption is often higher than planned.

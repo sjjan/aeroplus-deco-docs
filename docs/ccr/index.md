@@ -1,12 +1,12 @@
 # CCR diving
 
-CCR (Closed Circuit Rebreather) mode in AeroPlus Deco supports setpoint-based dive planning, scrubber endurance tracking, O₂ consumption monitoring, and bailout sufficiency checks.
+CCR (Closed Circuit Rebreather) mode in AeroPlus Deco supports setpoint-based dive planning, loop gas validation, and bailout sufficiency checks. Oxygen consumption and scrubber endurance are deliberately **not** calculated — see [Oxygen & scrubber](oxygen-and-scrubber.md).
 
 When CCR mode is active:
 
 - The deco algorithm uses a **constant loop O₂ partial pressure** (the setpoint) instead of a fixed gas mix
 - Cylinder roles change to **diluent**, **oxygen**, and **bailout**
-- A second card appears for **setpoints, scrubber, and bailout configuration**
+- A second card appears for **setpoint and bailout configuration**
 - Many gas-related warnings and calculations adjust accordingly
 
 ## In this section
@@ -14,7 +14,7 @@ When CCR mode is active:
 - **[Setup](setup.md)** — activating CCR mode and configuring cylinders
 - **[Setpoints](setpoints.md)** — surface SP, switch depth, bottom SP, deco SP, per-segment override
 - **[Bailout planning](bailout-planning.md)** — independent vs group bailout, sufficiency check
-- **[Oxygen & scrubber](oxygen-and-scrubber.md)** — O₂ consumption tracking and scrubber endurance
+- **[Oxygen & scrubber](oxygen-and-scrubber.md)** — why neither is calculated, and what bounds the maximum loop TTS instead
 
 ## Key differences from OC
 
@@ -25,8 +25,9 @@ When CCR mode is active:
 | Gradient factor strategy | Andy Davis method recommended | Personal/agency preference |
 | Auto-set GF Low | Available | Disabled (greyed out) |
 | Bailout consideration | N/A | Critical — independent or group |
-| Scrubber tracking | N/A | Per-dive duration on scrubber |
-| O₂ tracking | N/A | Cylinder fill and metabolic consumption |
+| Scrubber tracking | N/A | Not calculated — manage it yourself |
+| O₂ tracking | N/A | Not calculated — monitor your supply in the water |
+| Maximum TTS bound by | Back gas and deco gas | Bailout gas only (independent mode) |
 
 ## Switching modes
 

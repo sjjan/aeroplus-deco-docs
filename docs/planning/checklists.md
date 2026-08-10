@@ -55,7 +55,7 @@ When you finish, you are asked for a diver name or initials and the run is saved
 
 ## Creating and editing checklists
 
-- **+ New checklist** creates an empty checklist; choose its type, give it a title and a category.
+- **+ New checklist** creates an empty checklist; choose its type, give it a title, a category, and optionally the **model / unit** it is written for (for example *JJ-CCR* or *Revo III*). The category box offers your existing categories as suggestions.
 - **Duplicate** copies any checklist (including the bundled templates) into your own library so you can adapt it without changing the original.
 - **Edit** (on your own checklists) opens the editor, where you can add, reorder (▲▼) and delete steps or items, configure fields and timers, and set the step type.
 
@@ -64,6 +64,22 @@ Any step can carry a **photo** — handy for showing valve orientation or a hand
 
 ### Categories and ordering
 Each checklist has a **category** (for example *Rebreather*, *Open circuit*, *Packing*, or anything you type). The Checklists screen groups checklists by category. Use the ▲▼ arrows on each checklist to set the order within its category; the order is remembered on your device.
+
+## Where a checklist came from
+
+Every checklist in the list carries a small badge showing its origin, so you can tell at a glance whether you are looking at something official or something a buddy sent you:
+
+| Badge | Meaning |
+|---|---|
+| **Template** | One of the generic checklists bundled with AeroPlus Deco. |
+| **Manufacturer** | Imported from a file that declares itself as the unit manufacturer's procedure. |
+| **Community** | Imported from another diver. Anything you import that does not declare itself as a manufacturer or template file is treated as community. |
+| **Yours** | Created by you, or duplicated from any of the above. |
+
+A checklist you have changed since it arrived also gets an **edited** badge, so a modified copy is never mistaken for the original.
+
+!!! warning "A badge is not a verification"
+    The Manufacturer badge reflects what the file claims about itself — AeroPlus Deco cannot verify it. Check any imported checklist against your unit's actual documentation before you dive it.
 
 ## Sharing checklists
 
@@ -80,3 +96,5 @@ AeroPlus Deco ships with a few generic checklists to get you started:
 - **Generic CCR — Pre-dive** — a step-by-step pre-dive checklist covering cell age, gas analysis, calibration, batteries, bailout and a pre-breathe timer.
 
 Duplicate any of these to build your own unit-specific version.
+
+If you delete a bundled checklist and later want it back, use **Restore default checklists**. This adds back any built-in checklists you have deleted; it does not touch your own checklists or undo your edits.

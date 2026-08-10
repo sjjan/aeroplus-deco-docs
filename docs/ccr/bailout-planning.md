@@ -1,104 +1,134 @@
 # Bailout planning
 
-A rebreather has more failure modes than open circuit. The single most important contingency is **bailing out to OC** — switching to a backup regulator on a known-good OC gas and ascending without the loop. Bailout planning is non-optional.
+On a closed-circuit rebreather, **bailout** is the open-circuit gas you breathe if the loop becomes untrustworthy — a flooded scrubber, a controller failure, a hypoxic or hyperoxic loop, anything that means you can no longer breathe the unit. From that moment you are an open-circuit diver, and you must still complete your full decompression obligation on the gas you carry.
 
-AeroPlus Deco supports two bailout modes:
+AeroPlus Deco plans for exactly that. When you bail out at the deepest point of the dive, it **recomputes the whole decompression schedule on open circuit** using your bailout gases, and tells you whether what you're carrying is enough to reach the surface.
 
-## Independent vs group bailout
+!!! warning "Why this is its own calculation"
+    The decompression you owe on open circuit is **not** the same as the loop schedule. On the loop you breathe an optimal high-PPO₂ mix at every stop, so you off-gas quickly. On open circuit you breathe fixed cylinder mixes, the inert load is higher, and the obligation grows. Reusing the loop TTS for bailout would **understate** the gas and time you actually need. AeroPlus Deco re-runs the plan on the bailout gas instead — so the bailout numbers are usually longer and gassier than the loop figures, and that is correct.
 
-### Independent bailout
+## Bailout mode
 
-Each diver carries enough OC gas to ascend solo, from maximum depth, all the way to the surface, including full decompression. The app **validates** this — checking that the bailout cylinders cover the gas required for an OC ascent profile.
+In the **Closed Circuit Setup** card, **Bailout** can be set to:
 
-**Use when:**
+| Mode | Meaning |
+|---|---|
+| **Independent** | Every diver carries enough open-circuit gas to self-rescue from the worst point of the dive. AeroPlus Deco builds a full open-circuit bailout decompression schedule for this case. |
+| **Group / team** | The team shares bailout, so a single diver's cylinders need not cover the entire obligation alone. The detailed per-diver OC schedule is not assumed in this mode. |
 
-- Solo diving
-- Conservative team practice
-- Cave or wreck where buddy contact during bailout cannot be guaranteed
+The bailout decompression schedule described on this page is produced in **independent** mode — the standard, most conservative assumption.
 
-**Trade-off:** more gas carried per diver. For deep tech dives this can mean two or three stage cylinders per diver.
+## Using the diluent as bailout
 
-### Group bailout
+A common minimal-bailout setup (Halcyon Symbios and similar) is to breathe the **diluent open-circuit** through the bailout valve as your deep bailout gas. Enable this with:
 
-The team carries enough OC bailout collectively to cover any one diver's bailout. Individual divers carry less; the team shares stage drops along the ascent line. The app **does not validate** group totals — that's a planning step done outside the app, usually in a spreadsheet or by manual calculation.
+> ☑ **Use diluent as an open-circuit bailout gas**
 
-**Use when:**
+When ticked, AeroPlus Deco adds your diluent to the bailout gas pool and breathes it open-circuit — no setpoint, no oxygen boost, just the raw diluent mix at depth. A **descent reserve** (default 50 bar) is held back, since the diluent has already done work keeping the loop topped up on the way down.
 
-- Multi-diver teams with team cohesion training
-- Long-stage decompression dives where independent bailout is impractical
-- Diving with surface support (boats with deco stations)
+Because the diluent is usually your *leanest* (most hypoxic) gas, the plan starts the bailout on the diluent at maximum depth and switches to richer carried gases as you ascend — the natural open-circuit progression.
 
-**Trade-off:** lower individual load but planning is more complex and requires team discipline.
+## The bailout decompression schedule
 
-A yellow warning banner appears when Group is selected to remind you: *"AeroPlus Deco does not validate group gas totals. Ensure surface support and pre-staged deco stations are confirmed before the dive."*
+The schedule is shown as an open-circuit stop table, in the same runtime-based format as the main deco plan:
 
-## Configuring bailout
+```
+→   75.0   19 min   +2     18/60 (dil)
+↗   36.0   22 min   +3     18/60 (dil)
+→   36.0   24 min   +2     18/60 (dil)
+⊙   33.0   26 min   +2     ⊙ 16/58
+→   30.0   28 min   +2     16/58
+ …
+⊙   21.0   34 min   +2     ⊙ 50/0
+→   18.0   36 min   +2     50/0
+ …
+⊙    6.0   52 min   +2     ⊙ 100/0
+→    6.0   60 min   +8     100/0
+→    3.0   78 min   +18    100/0
+↗    0.0   78 min   +0     100/0
+```
 
-In the **Closed Circuit Setup** card on the main plan page, the bailout mode selector switches between Independent and Group. Below it, the bailout cylinders are listed (from the Gas & cylinders card, role = `bailout`).
+| Column | Meaning |
+|---|---|
+| **Arrow** | Ascent (↗), stop (→), or a gas switch (⊙) |
+| **Depth** | Stop depth in metres |
+| **Runtime** | Cumulative runtime, continuing from the dive — it starts at the dive's bottom-phase runtime at the moment of bailout, not from zero |
+| **Duration** | Whole-minute time on that row, with any folded 3 m ascent included |
+| **Gas** | The bailout gas being breathed; `(dil)` marks the diluent |
 
-Add bailout cylinders just like any other gas: tap **+ Add** in the Gas & cylinders card and choose **Bailout gas** as the role.
+A few things about how the table reads:
 
-## What the bailout sufficiency check covers
+- **The runtime continues from the dive.** Bailout is assumed from the most critical point — the end of the bottom phase, just before ascent — so the Runtime column begins at that dive runtime rather than restarting at zero. The total bailout TTS (time from bailout to the surface) is shown in the summary line directly below the table.
+- **3 m ascents are folded in.** A single 3 m step between stops is only a few seconds, so it isn't drawn as its own line — its time is rolled into the next stop's duration. A larger gap (where intermediate levels were skipped) keeps its own ascent (↗) line, and the first ascent to the first stop and the final ascent to the surface are always shown.
+- **Durations are whole minutes**, derived from the rounded runtimes, so they always sum to the runtime without drift.
 
-When **Independent** mode is active, the algorithm:
+### Gas switches cost time
 
-1. Constructs a hypothetical bailout OC profile — same depths, same segments, but the diver is on OC gas throughout
-2. Picks the richest available bailout gas at each depth (respecting MOD)
-3. Computes the gas required by each bailout cylinder for the planned profile
-4. Adds the rock-bottom reserve for two divers at max depth (same as bottom-gas rock bottom)
-5. Compares to the fill in each cylinder
-6. If short, raises a "**Bailout shortfall**" warning
+Every ⊙ row is a real open-circuit gas switch and is charged your configured **Gas switch time** — the pause while you change regulators and confirm the new gas. That pause is added to the runtime and to the gas required, exactly as it would be in the water.
 
-If the warning appears, your bailout cylinders are not large enough for an independent OC ascent. Options:
+This includes the **diluent → carried-gas handoff**. When you are bailed out on the diluent and its usable volume runs out, the plan switches you to the next carried gas that is still breathable at that depth. AeroPlus Deco models this as a genuine ⊙ switch at the handoff depth, with the switch time and switch gas accounted for — not as a free, instant change.
 
-- **Larger bailout cylinders** (12 ℓ instead of 11 ℓ, for example)
-- **Higher fill pressures** (300 bar twins for the deepest bailout)
-- **More bailout cylinders** (add a deeper bailout mix to reduce the depth range each cylinder must cover)
-- **Switch to group mode** if team practice supports it
+## Bailout TTS vs maximum loop TTS
 
-## Bailout switch time
+Two different time-to-surface figures appear for a CCR plan, and they answer different questions:
 
-In **Settings → CCR → Bailout switch time** (default 2 min), this is the mandatory pause when bailing out from the loop to OC. The 2 min adds to:
+- **Bailout TTS** — how long it takes to surface **on open circuit** if you bail out now. This is the headline figure on the bailout card.
+- **Maximum loop TTS** — the bailout-limited ceiling for staying **on the loop**, shown under the ascent trigger. Oxygen and scrubber are not modelled, so bailout gas is the only consumable that bounds it. See [maximum TTS on CCR](oxygen-and-scrubber.md#maximum-tts-on-ccr).
 
-- The bailout gas requirement (you breathe OC at higher SAC during the pause)
-- The runtime if the algorithm is computing a bailout scenario
+They are deliberately separate: one is your escape plan, the other is your loop endurance.
 
-Most agencies teach a 1–2 minute switch sequence (close DSV, switch to BOV or alternate regulator, verify, begin breathing OC). Tune to your team's practice.
+## Is your bailout enough?
 
-## Reading the bailout output
+Beneath the schedule, AeroPlus Deco compares what the bailout obligation needs against what you carry:
 
-The **Gas plan** card lists bailout cylinders alongside others. Bailout-role cylinders are labeled and the bars show:
+> ✓ Bailout sufficient: 7015 ℓ available, 3702 ℓ required
 
-- **Used** (blue) — gas the algorithm expects you'd use during a bailout from max depth
-- **Reserve** (red) — minimum gas to keep at end of bailout (matches rock-bottom logic)
-- **Unused** (grey) — surplus
+- **Required** — total open-circuit volume to surface from the worst point, at the **emergency SAC** rate, including every gas-switch pause.
+- **Available** — usable volume across your bailout cylinders (and the diluent, less its descent reserve, if diluent-bailout is on).
 
-In group mode, the Used and Reserve are computed as if you bailed out independently from max depth — even though in practice the team's collective gas absorbs the requirement.
+If required exceeds available, the banner turns **red** — carry more bailout, a larger cylinder, or shorten/shallow the dive.
 
-## Practical CCR bailout configurations
+Each bailout cylinder is also drawn as a standard gas bar (used / reserve / unused against a 0-to-fill scale), so you can see at a glance which bottle does the work and where the margin is. See [reading the output](../planning/reading-the-output.md) for the bar conventions.
 
-### Recreational CCR (40 m max)
+## Surface and hypoxic-gas warnings
 
-- 1 × 11 ℓ AL with 32/0 or 50/0 (covers entire ascent)
+Bailout gas only helps if you can breathe it:
 
-### Sport tech CCR (60–80 m)
+- **Nothing breathable at the surface** — if even your richest bailout gas has a PPO₂ below the hypoxic floor (default 0.16) at 0 m, the plan flags it in red. You would need a richer gas to safely breathe at and just below the surface.
+- **Hypoxic diluent** — if the diluent (used as bailout) is too lean to breathe shallow, the plan notes the approximate depth above which it is no longer safe, so you know you must already be on a richer gas by then.
 
-- 1 × 11 ℓ AL with 21/35 (bottom phase + travel)
-- 1 × 11 ℓ AL with 50/0 (deco 21 m up)
-- Optional: 1 × 5.5 ℓ AL with 100/0 (deco 6 m)
+This mirrors the **Diluent PPO₂** column in the runtime schedule — see [setpoints](setpoints.md#reading-setpoints-in-the-output).
 
-### Heavy tech CCR (100 m+)
+## Where to find it in the app
 
-- 1 × 11 ℓ AL with 16/55 hypoxic trimix (bottom phase, matches loop)
-- 1 × 11 ℓ AL with 21/35 travel
-- 1 × 11 ℓ AL with 50/0
-- 1 × 5.5 ℓ AL with 100/0
-- Or some combination using doubles and stages
+In CCR mode the bailout content sits at the **bottom of the plan output**, in its own card (titled **Bailout**), below the gas plan and ascent trigger. The full bailout schedule, the sufficiency banner, the per-cylinder bars, and any warnings are all there. The schedule is also included in the **print / PDF report**.
 
-## CCR bailout in the runtime schedule
+## Settings that feed the calculation
 
-The runtime schedule doesn't show bailout gases in the normal **Gas** column — the planned dive is on the loop. Bailout details are visible only in:
+| Setting | Role in bailout |
+|---|---|
+| **Gas usage emergency** (emergency SAC) | Consumption rate for the whole bailout ascent |
+| **Bailout switch time** | The initial pause as you come off the loop onto OC bailout |
+| **Gas switch time** | The pause at every subsequent OC gas switch, including the diluent handoff |
+| **Max deco PPO₂** | The depth at which each richer gas becomes usable |
+| **Ascent speed** | Rate between stops |
+| **Min surface PPO₂** | The hypoxic floor used for the surface-breathability check |
 
-- The **Gas plan card → bailout cylinder bars**
-- The **Critical warnings** if a shortfall is detected
-- An informational note if Group mode is selected
+## Caveats and limitations
+
+!!! warning "Cross-check before you rely on it"
+    The bailout schedule is a planning aid, not gospel. **Confirm every bailout plan against a trusted desktop planner** (e.g. MultiDeco) before relying on it in the water. The in-app figures are conservative and agree well in testing, but you are responsible for the plan you dive.
+
+- **Volume handoff is a proxy.** The depth at which the diluent hands off to a carried gas is apportioned from the diluent's usable volume, not from a second independent decompression run. It is a sound estimate of *where* you'll switch, not a re-solved stop schedule.
+- **Stop lengths aren't re-timed for the switch minute.** The gas-switch pause is added to TTS and to gas required, but individual stop durations are not recomputed for the small extra time spent at the switch depth. The effect on the obligation is negligible.
+- **It assumes you execute perfectly.** The numbers assume you bail at the planned worst point, breathe at the emergency SAC, ascend at exactly the set rate, and hit every stop. Real emergencies are messier and real consumption is usually higher — plan conservatively.
+- **Single failure from max depth.** Like rock bottom, the model covers one loop failure at the deepest point. Cascading problems need more margin.
+
+## Practical tips
+
+- **Carry a useful deep bailout.** A very lean deep mix (e.g. 16/58) breathed open-circuit produces enormous, impractical shallow stops — it is a poor standalone bailout. Make sure your bailout progression includes gases rich enough to clear the obligation in sensible time.
+- **Watch the first switch depth.** If your only breathable shallow gas comes on late, your deep bailout has to carry more of the dive — check the required-vs-available margin.
+- **Re-check after any change.** Changing depth, bottom time, diluent, or bailout fill re-runs the schedule. Glance at the sufficiency banner each time.
+
+!!! note "Open circuit is the fallback, not the plan"
+    Sufficient bailout means you can probably get out if the loop fails — it does not make the loop failure safe. Train your bailout drills, keep your gas analysed and labelled, and treat the schedule as the minimum you must beat, not the target you aim for.

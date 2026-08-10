@@ -38,13 +38,12 @@ The "best diluent" calculator can compute a diluent that satisfies both narcosis
 
 ### Oxygen
 
-Pure O₂ (1.00 / 0). Used by the loop solenoid to maintain setpoint. The app tracks **O₂ used in litres** based on metabolic consumption and setpoint-driven flushes, and **remaining O₂ duration**.
+Pure O₂ (1.00 / 0). Used by the loop solenoid to maintain setpoint. **O₂ consumption is not calculated** — the app records the cylinder for reference only, and you monitor your supply in the water. See [Oxygen & scrubber](oxygen-and-scrubber.md) for why.
 
 You can adjust:
 
-- **Cylinder size** (Settings → typically 1.5 or 3.0 ℓ for CCR)
+- **Cylinder size** (typically 1.5 or 3.0 ℓ for CCR)
 - **Fill pressure** (typically 200 bar)
-- **O₂ metabolic rate** (Settings → CCR section; default 1.5 ℓ/min STPD)
 
 ### Bailout
 
@@ -91,8 +90,6 @@ In **Settings → CCR**:
 
 | Setting | Default | Range | What it controls |
 |---|---|---|---|
-| O₂ metabolic rate | 1.5 ℓ/min | 0.1–3.0 | Per-minute O₂ consumption (STPD) |
-| Scrubber capacity | 180 min | 30–480 | Total scrubber endurance before replacement |
 | Bailout switch time | 2 min | 0–5 | Mandatory pause when switching to bailout |
 | Diluent O₂ from target PPO₂ | Off | On / Off | Best-diluent O₂ strategy. Off = fixed 10 %; on = diluent O₂ set so its PPO₂ at depth is 1.0 ata (≈ 9 % at 100 m) |
 

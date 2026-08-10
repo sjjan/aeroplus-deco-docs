@@ -141,9 +141,10 @@ In CCR mode, the cards expand with rebreather-specific information:
 
 - **Diluent PPO₂** in the runtime schedule
 - **Loop density** in the Limits table
-- **Oxygen used / remaining** in the Rock bottom & TTS card
-- **Scrubber endurance** indicator
-- **Bailout sufficiency check** (when independent bailout mode is set)
+- **Bailout sufficiency check** and the open-circuit bailout schedule (independent bailout mode)
+- **Maximum loop TTS**, bounded by bailout gas only
+
+Oxygen consumption and scrubber endurance are not shown — see [Oxygen & scrubber](../ccr/oxygen-and-scrubber.md).
 
 See [CCR overview](../ccr/index.md) for details.
 

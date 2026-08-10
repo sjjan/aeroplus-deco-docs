@@ -66,7 +66,7 @@ The **red Reserve** bar in the gas plan card shows what's left of the rock-botto
 
 ### Does the app track repetitive dives?
 
-Yes. The **Surface interval card** lets you tell the app how long you've been on the surface since the previous dive. Tissue saturation, CNS, OTU, and scrubber/O₂ tracking all carry over.
+Yes. The **Surface interval card** lets you tell the app how long you've been on the surface since the previous dive. Tissue saturation, CNS and OTU all carry over. Oxygen and scrubber use are not tracked at all, on any dive — manage those yourself.
 
 ### Where do I enter the surface interval?
 
@@ -74,7 +74,7 @@ When a previous dive in the same plans-bar exists, the Surface interval card app
 
 ### Can I plan back-to-back dives across days?
 
-Yes — long surface intervals are supported. The tissue model will return to baseline within ~24 hours, but CNS, OTU, and scrubber use take longer.
+Yes — long surface intervals are supported. The tissue model will return to baseline within ~24 hours; CNS and OTU take longer.
 
 ---
 
@@ -174,7 +174,7 @@ Yes — your license activates up to 3 devices. Plans don't sync automatically b
 
 ### Does the app work in Imperial units (feet, psi)?
 
-Not currently. AeroPlus Deco uses metric throughout. If demand is significant, an imperial option may be added — file feedback.
+Yes. Set **Settings → Units** to imperial and the whole app switches — depths in feet, pressures in psi, cylinders in cu ft, SAC in cu ft/min. The decompression model itself is always metric internally, so switching units changes the display, not the physics. Stops follow the 10 ft grid in imperial rather than the 3 m grid, which can shift a stop time by a minute. See [Units](units.md).
 
 ### Where can I see what changed in the latest version?
 

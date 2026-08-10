@@ -1,143 +1,50 @@
 # Oxygen & scrubber
 
-CCR mode adds two consumable-tracking concerns that don't exist on OC: the oxygen cylinder feeding the loop, and the CO₂ scrubber. AeroPlus Deco tracks both.
+Your oxygen supply and your CO₂ scrubber are the two consumables that keep a rebreather running, and on a long dive either can end it. **AeroPlus Deco deliberately does not calculate or track them.** This page explains that decision, and what the app does bound instead.
 
-## Oxygen consumption
+!!! warning "Neither is modelled — monitor both in the water"
+    AeroPlus Deco shows no O₂ consumption figure, no O₂ remaining duration, and no scrubber endurance countdown. Your handset and your own procedures are the authority on both. Plan your gas and absorbent duration with your unit's manufacturer figures and your training, not with this app.
 
-### Metabolic O₂ rate
+## Why oxygen use is not calculated
 
-Your body consumes O₂ at a roughly constant rate (depending on workload). This is independent of depth — on a rebreather, you consume the same molecules per minute at 60 m as you do at 6 m.
+Earlier versions estimated O₂ consumption from a metabolic rate plus setpoint-maintenance additions. That figure was removed on the advice of a CCR instructor trainer, for a straightforward reason: **it looked far more precise than it could possibly be.**
 
-**Settings → CCR → O₂ metabolic rate** (default 1.5 ℓ/min STPD). Typical ranges:
+Real oxygen use on a rebreather is dominated by things the app cannot know:
 
-| Activity | Rate (ℓ/min STPD) |
-|---|---|
-| Resting, warm | 0.6–0.8 |
-| Normal diving | 1.0–1.3 |
-| Active diving (cold, work) | 1.5–2.0 |
-| Heavy work | 2.0–3.0 |
+- **Manual additions.** Loop volume changes constantly with depth, buoyancy adjustment, drysuit feeding from the O₂ or diluent supply, and diver habit. Manual O₂ shots routinely swamp metabolic consumption.
+- **Flushes.** Diluent flushes, O₂ flushes for cell validation, and pre-breathe all consume gas that no profile-based model predicts.
+- **Metabolic rate is personal and variable.** It swings with workload, thermal stress and fitness — easily a factor of three between a warm, relaxed diver and a cold, working one.
+- **Leaks and solenoid behaviour** vary by unit and by day.
 
-Use the setting that matches your typical effort. Conservative is higher (1.5 is widely cited for tech CCR planning).
+A number that is wrong by a factor of two is worse than no number, because divers trust displayed figures. The same reasoning removed the scrubber endurance countdown: a minutes-remaining readout computed from a nominal capacity invites you to dive to a number that depends on water temperature, work rate, CO₂ production, packing quality and absorbent age — none of which the app can observe.
 
-### Setpoint-driven flushes
+This is a deliberate design principle in AeroPlus Deco: **where a calculated value would be trusted more than it deserves, it is not shown.**
 
-Apart from metabolic consumption, the rebreather also adds O₂ to maintain setpoint during ascent (the loop gets richer as pressure decreases). This is calculated by the algorithm based on the setpoint and depth profile.
+## What you should do instead
 
-The total O₂ shown as **Used** in the gas plan reflects both metabolic and setpoint-maintenance consumption.
-
-### Reading the output
-
-In the **Gas plan card**, the oxygen cylinder gets its own bar:
-
-- **Used** (blue) — total O₂ consumed during the planned dive
-- **Reserve / Unused** (grey) — what remains in the cylinder after the dive
-
-The cylinder's remaining duration (in min) at the current consumption rate is also displayed in the **Rock bottom & TTS card** under "**O₂ remaining**".
-
-### Marking O₂ as refilled
-
-In the **Plans bar** at the top of the app, an active plan can be marked as having had a fresh O₂ refill before the dive. This resets the O₂ tracking for repetitive dive sequences.
-
-For a single dive, you don't need to do anything — the O₂ usage is just for that dive.
-
-For a repetitive dive series:
-
-1. Plan dive 1; calculate
-2. Set surface interval (if applicable)
-3. Add dive 2 (new plan tab); the app carries forward O₂ remaining from dive 1
-4. If you refilled between dives, mark **O₂ refilled** in the new plan — this resets
-
-## Scrubber endurance
-
-### What the scrubber does
-
-The rebreather's CO₂ scrubber removes carbon dioxide from the exhaled loop gas via a chemical absorbent (e.g. soda lime). Scrubber capacity is measured in minutes of CO₂ absorption at a typical breathing rate. As scrubbers age (per-dive use), their absorbing capacity drops; at some point you must repack.
-
-### Settings
-
-In **Settings → CCR → Scrubber capacity** (default 180 min, range 30–480):
-
-The exact capacity depends on:
-
-- **Scrubber size and type** — different units have different capacities
-- **Water temperature** — cold water reduces capacity
-- **Breathing rate** — heavier work draws CO₂ faster
-
-Common values for tech-grade units: 120–180 min in warm water, 90–150 min in cold water.
-
-### Tracking across dives
-
-Each plan has a **Scrubber fresh** flag. When set:
-
-- The scrubber is assumed to be at full capacity for this dive
-- The current dive's duration is logged against capacity
-
-When not set (a repetitive dive on the same scrubber):
-
-- The previous dives' durations subtract from capacity
-- The remaining capacity is what's left for this dive
-- If the planned duration exceeds remaining capacity, a warning appears
-
-### Reading the output
-
-In the **Rock bottom & TTS card** (CCR mode):
-
-- **Scrubber endurance** — total capacity (e.g. 180 min)
-- **Used (prev dives)** — sum of durations from prior plans on the same scrubber
-- **Used (this dive)** — planned dive duration
-- **Remaining** — capacity minus all uses
-
-A warning is raised if **Remaining** goes below a buffer (default: 10 min of margin).
+- **Oxygen** — check your onboard O₂ pressure before the dive and monitor it throughout. Use your unit's guidance for the minimum you need for the planned runtime plus a real reserve. Treat the O₂ supply as a hard turn criterion in your dive plan.
+- **Scrubber** — track absorbent duration yourself against the manufacturer's figure, derated for cold water and workload (many teams plan at 60–75 % of the rated duration). Log the elapsed time on each fill.
+- **Record it on a checklist.** The bundled *Generic CCR — Assembly* checklist has a **Scrubber filled and seated** step with a field for the absorbent duration set for this fill, so the figure is captured with the build and stored in the saved run. See [Checklists](../planning/checklists.md).
 
 ## Maximum TTS on CCR
 
-On a rebreather the diluent loop is **effectively unlimited** for normal diving, so the maximum TTS isn't set by back gas. Instead AeroPlus Deco extends your bottom time until the first of three consumables would be exhausted — **bailout gas, scrubber endurance, or onboard oxygen** (at your metabolic rate) — and reports the TTS at that point.
+The app still reports a **maximum loop TTS** under the ascent trigger — the longest time-to-surface you could reach before you run out of something. On CCR the loop itself is not consumed, and neither oxygen nor scrubber is modelled, so **the only consumable that bounds it is your bailout gas**.
 
-> **Maximum TTS ≈ N min** (shown at your bottom setpoint; it drops once you switch to the deco setpoint) — the longest before your bailout, scrubber or O₂ would be exhausted. Turn at your target TTS for margin; never exceed this.
+> **Maximum loop TTS ≈ N min** — the longest before your bailout would be exhausted. Turn at your target TTS for margin; never exceed this.
 
 ### How it's checked
 
-Exactly as on open circuit, the app re-runs the full plan repeatedly, lengthening the last bottom segment a little more on each pass (a binary search). At each trial it checks three consumables, all of which grow with a longer dive:
+Exactly as on open circuit, the app re-runs the full plan repeatedly, lengthening the last bottom segment a little more on each pass (a binary search), so every trial is a complete, valid schedule. At each trial it checks whether an open-circuit bailout from that point would still be covered by the gas you carry — see [Bailout planning](bailout-planning.md).
 
-1. **Scrubber** — time already used plus this dive's total duration (bottom time *plus* the ascent and deco it implies) stays within scrubber capacity.
-2. **Oxygen** — onboard O₂ consumed (metabolic plus setpoint maintenance) stays within what the cylinder holds, at your configured metabolic rate.
-3. **Bailout** — *independent mode only* — your bailout still covers an open-circuit ascent from depth. In **group** bailout mode this is the dive team's responsibility and is **not** used as a limit, so only scrubber and oxygen bound the maximum there.
+This check applies in **independent** bailout mode only. In **group** mode, bailout sufficiency is the team's responsibility and is not used as a limit, so no maximum loop TTS is bound by gas at all.
 
-It stops at the last bottom time that passes all applicable checks and reports the TTS there (at your bottom setpoint), never below your planned TTS. The readout **names whichever consumable binds first**. The diluent loop itself is not a limit — it is recirculated, not consumed.
+!!! warning "This is a bailout limit, not an endurance limit"
+    The maximum loop TTS tells you when your **bailout** runs out. It says nothing about your oxygen supply or your scrubber, and either of those may well bind first on a long dive. It also assumes your emergency SAC is accurate and that you **ascend at exactly the rate set in preferences and execute every decompression stop to the letter**. Treat it as a ceiling, never a target, and keep your own O₂ and absorbent limits alongside it.
 
-!!! warning "Check your rates and plan conservatively"
-    The maximum TTS depends on your metabolic O₂ rate, your SAC (for bailout) and your scrubber assumptions, and it assumes you **ascend at exactly the rate set in preferences and execute every decompression stop to the letter**. Double-check all of these and plan conservatively — see [Conservative practice](#conservative-practice). Treat the maximum TTS as a ceiling, not a target.
+## Repetitive CCR diving
 
-## Practical patterns
+Tissue loading, CNS and OTU all carry across dives through the surface interval — see [Reading the output](../planning/reading-the-output.md). Oxygen and scrubber use do **not** carry across, because they are not tracked at all. Between dives in a series, manage both yourself:
 
-### Single tech CCR dive
-
-- Mark scrubber as fresh (default for new plan)
-- Plan the dive
-- Verify O₂ remaining is comfortable (typically 2–3× planned dive duration)
-
-### Repetitive CCR diving
-
-- Plan dive 1: scrubber fresh, calculate
-- Plan dive 2 in a new tab: scrubber **not** fresh; carry forward from dive 1
-  - If you refilled O₂, mark **O₂ refilled** = true for dive 2
-- The app will track cumulative scrubber use across the series
-
-### Replanning after repack
-
-If you repack mid-trip:
-
-1. Open the active plan
-2. Toggle **Scrubber fresh** on
-3. The scrubber count resets for subsequent plans built on this base
-
-## Conservative practice
-
-The scrubber capacity from the manufacturer is typically a "calm water, normal effort, single-diver" figure. For real-world tech ops, divers typically derate it by 25–40 %:
-
-- Manufacturer's 180 min → planning at 120–135 min
-- Manufacturer's 240 min → planning at 150–180 min
-
-Set the scrubber capacity in settings to your planning value, not the manufacturer's number.
-
-Same applies to O₂ consumption — use 1.5 ℓ/min metabolic for planning even if your real-world rate is 1.2 ℓ/min, just to keep a margin.
+1. Check and top up the onboard O₂; note the starting pressure.
+2. Decide whether the absorbent has enough remaining duration for the next dive, or repack.
+3. Record both on your pre-dive checklist so the decision is captured with the run.

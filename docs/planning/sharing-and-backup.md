@@ -26,7 +26,7 @@ The `#p=...` portion is a base64-encoded copy of the entire plan: cylinders, seg
 - All segments (depth, time, gas reference)
 - All settings (GFs, ascent rates, CCR mode, setpoints if applicable)
 - Surface interval and previous-dive state (if applicable)
-- Scrubber freshness and O₂ refill flags (CCR)
+- Your unit system (metric or imperial)
 
 ### What's NOT in the link
 

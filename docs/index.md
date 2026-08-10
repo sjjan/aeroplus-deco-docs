@@ -32,7 +32,7 @@ A technical dive decompression planner for **open-circuit** and **closed-circuit
 
     ---
 
-    Setpoints, bailout, scrubber and oxygen tracking — what changes when you switch to rebreather mode.
+    Setpoints, diluent, and bailout planning — what changes when you switch to rebreather mode.
 
 -   :material-calculator:{ .lg .middle } **[Calculators](tools/index.md)**
 
