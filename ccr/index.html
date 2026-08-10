@@ -269,6 +269,25 @@
   
   
   
+    <li class="md-tabs__item">
+      <a href="../units/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Units
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
     
     
       <li class="md-tabs__item">
@@ -535,6 +554,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../units/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
       
@@ -571,7 +617,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -593,14 +639,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -881,7 +927,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -903,14 +949,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1136,7 +1182,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -1158,14 +1204,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1328,7 +1374,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1350,14 +1396,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1653,12 +1699,12 @@
 
 
 <h1 id="ccr-diving">CCR diving<a class="headerlink" href="#ccr-diving" title="Anchor link to this section">&para;</a></h1>
-<p>CCR (Closed Circuit Rebreather) mode in AeroPlus Deco supports setpoint-based dive planning, scrubber endurance tracking, O₂ consumption monitoring, and bailout sufficiency checks.</p>
+<p>CCR (Closed Circuit Rebreather) mode in AeroPlus Deco supports setpoint-based dive planning, loop gas validation, and bailout sufficiency checks. Oxygen consumption and scrubber endurance are deliberately <strong>not</strong> calculated — see <a href="oxygen-and-scrubber/">Oxygen &amp; scrubber</a>.</p>
 <p>When CCR mode is active:</p>
 <ul>
 <li>The deco algorithm uses a <strong>constant loop O₂ partial pressure</strong> (the setpoint) instead of a fixed gas mix</li>
 <li>Cylinder roles change to <strong>diluent</strong>, <strong>oxygen</strong>, and <strong>bailout</strong></li>
-<li>A second card appears for <strong>setpoints, scrubber, and bailout configuration</strong></li>
+<li>A second card appears for <strong>setpoint and bailout configuration</strong></li>
 <li>Many gas-related warnings and calculations adjust accordingly</li>
 </ul>
 <h2 id="in-this-section">In this section<a class="headerlink" href="#in-this-section" title="Anchor link to this section">&para;</a></h2>
@@ -1666,7 +1712,7 @@
 <li><strong><a href="setup/">Setup</a></strong> — activating CCR mode and configuring cylinders</li>
 <li><strong><a href="setpoints/">Setpoints</a></strong> — surface SP, switch depth, bottom SP, deco SP, per-segment override</li>
 <li><strong><a href="bailout-planning/">Bailout planning</a></strong> — independent vs group bailout, sufficiency check</li>
-<li><strong><a href="oxygen-and-scrubber/">Oxygen &amp; scrubber</a></strong> — O₂ consumption tracking and scrubber endurance</li>
+<li><strong><a href="oxygen-and-scrubber/">Oxygen &amp; scrubber</a></strong> — why neither is calculated, and what bounds the maximum loop TTS instead</li>
 </ul>
 <h2 id="key-differences-from-oc">Key differences from OC<a class="headerlink" href="#key-differences-from-oc" title="Anchor link to this section">&para;</a></h2>
 <table>
@@ -1706,12 +1752,17 @@
 <tr>
 <td>Scrubber tracking</td>
 <td>N/A</td>
-<td>Per-dive duration on scrubber</td>
+<td>Not calculated — manage it yourself</td>
 </tr>
 <tr>
 <td>O₂ tracking</td>
 <td>N/A</td>
-<td>Cylinder fill and metabolic consumption</td>
+<td>Not calculated — monitor your supply in the water</td>
+</tr>
+<tr>
+<td>Maximum TTS bound by</td>
+<td>Back gas and deco gas</td>
+<td>Bailout gas only (independent mode)</td>
 </tr>
 </tbody>
 </table>
